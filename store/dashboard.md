@@ -74,6 +74,7 @@ Host permissions: none.
 
 ## Firefox (addons.mozilla.org)
 
+- Страница дополнения: `https://addons.mozilla.org/firefox/addon/webpageshot/` (откроется после одобрения).
 - Аккаунт Mozilla, бесплатно. Способ публикации: **On this site** (в каталоге).
 - «Do you need to submit source code?» — **No**: код не сжат и не собран сборщиком.
 - Summary — `extDescription` из `_locales/<язык>/messages.json` (до 250 символов).
