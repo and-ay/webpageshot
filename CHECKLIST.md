@@ -34,7 +34,7 @@
 
 ## 3. Публикация (делаете вы)
 
-- [ ] Репозиторий `and-ay/webpageshot`: `git init`, первый коммит, создать на GitHub публичным, включить GitHub Pages из `docs/`, проверить адрес политики (`.gitignore` готов: без `dist/` и `CLAUDE.md`)
+- [x] Репозиторий [`and-ay/webpageshot`](https://github.com/and-ay/webpageshot) — публичный, GitHub Pages из `docs/` включены, политика открывается: https://and-ay.github.io/webpageshot/privacy.html
 - [ ] Аккаунты:
   - [ ] Chrome Web Store — взнос $5, двухэтапная аутентификация
   - [ ] Microsoft Partner Center (Edge)
