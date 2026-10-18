@@ -44,6 +44,13 @@
 
 ## Установка
 
+Из магазина:
+
+- [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/ehdenpojpiphjdpibmcolfihmpmpebcg)
+- Chrome Web Store, Firefox Add-ons, Opera add-ons — на проверке, ссылки скоро появятся
+
+Из исходников:
+
 1. Откройте `chrome://extensions` (в Edge — `edge://extensions`, в Яндексе — `browser://extensions`).
 2. Включите «Режим разработчика».
 3. Нажмите «Загрузить распакованное расширение» и выберите эту папку.

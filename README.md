@@ -45,6 +45,13 @@ hence the window where you press Enter.
 
 ## Installation
 
+From the store:
+
+- [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/ehdenpojpiphjdpibmcolfihmpmpebcg)
+- Chrome Web Store, Firefox Add-ons, Opera add-ons — in review, links coming soon
+
+From source:
+
 1. Open `chrome://extensions` (in Edge — `edge://extensions`, in Yandex Browser — `browser://extensions`).
 2. Turn on "Developer mode".
 3. Click "Load unpacked" and select this folder.

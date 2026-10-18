@@ -49,7 +49,7 @@
 - [ ] Дождаться проверки, ответить на замечания модераторов
 - [ ] После одобрения вставить ссылки на магазины на сайт (`docs/index.html`, раздел установки на 7 языках) и в README
   - Firefox: `https://addons.mozilla.org/firefox/addon/webpageshot/`
-  - Edge: `https://microsoftedge.microsoft.com/addons/detail/ehdenpojpiphjdpibmcolfihmpmpebcg`
+  - [x] Edge: `https://microsoftedge.microsoft.com/addons/detail/ehdenpojpiphjdpibmcolfihmpmpebcg` — опубликовано, ссылка на сайте и в README
   - Opera: `https://addons.opera.com/extensions/details/webpageshot/`
   - Chrome: ссылка появится в консоли разработчика после публикации
 
