@@ -16,6 +16,7 @@ $frames = [ordered]@{
   'shot-4' = @{ path = 'store\graphics\screenshot-4.png' }
   'shot-5' = @{ path = 'store\graphics\screenshot-5.png' }
   'tile' = @{ path = 'store\graphics\promo-small-440x280.png' }
+  'marquee' = @{ path = 'store\graphics\promo-marquee-1400x560.png' }
   'icon-16' = @{ path = 'icons\icon16.png'; alpha = $true }
   'icon-24' = @{ path = 'icons\icon24.png'; alpha = $true }
   'icon-32' = @{ path = 'icons\icon32.png'; alpha = $true }

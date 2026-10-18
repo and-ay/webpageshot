@@ -84,6 +84,17 @@
                 box-shadow: 0 18px 40px rgba(0, 0, 0, .3); }
   .tile .page img { display: block; width: 100%; }
   .tile .sel { position: absolute; left: 22px; top: 18px; width: 96px; height: 44px; border: 2px solid #fff; background: rgba(255, 255, 255, .18); border-radius: 2px; }
+
+  /* большая промо-плитка 1400×560 */
+  .marquee { width: 1400px; height: 560px; padding: 84px 0 0 88px; color: #fff;
+             background: radial-gradient(900px 640px at 100% 0%, #5b8ff5 0%, transparent 70%), linear-gradient(135deg, #2f6feb 0%, #1a46b8 100%); }
+  .marquee .mark { width: 64px; height: 64px; fill: none; stroke: #fff; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+  .marquee .name { margin-top: 22px; font-size: 60px; font-weight: 700; letter-spacing: -1px; line-height: 1.1; }
+  .marquee .tag { margin-top: 12px; width: 440px; font-size: 23px; line-height: 1.4; color: #dbe6ff; }
+  .marquee .modes { display: flex; flex-wrap: wrap; gap: 10px; width: 440px; margin-top: 30px; }
+  .marquee .modes span { padding: 7px 14px; border-radius: 8px; background: rgba(255, 255, 255, .16); font-size: 16px; font-weight: 600; }
+  .marquee .browser { position: absolute; left: 600px; top: 70px; box-shadow: 0 30px 70px rgba(0, 0, 0, .3); }
+  .marquee .popup { position: absolute; left: 1036px; top: 116px; width: 300px; border-radius: 12px; box-shadow: 0 24px 60px rgba(0, 0, 0, .35); }
 </style>
 </head>
 <body>
@@ -193,6 +204,19 @@
   <div class="name">WebPageShot</div>
   <div class="tag">Full-page, region and element screenshots</div>
   <div class="page"><img src="img/page.png" alt=""><div class="sel"></div></div>
+</div>
+
+<!-- большая промо-плитка -->
+<div class="frame marquee" id="marquee">
+  <svg class="mark"><use href="#logo"/></svg>
+  <div class="name">WebPageShot</div>
+  <div class="tag">Web page screenshots in one click: the whole page, a region or a single block</div>
+  <div class="modes"><span>Visible area</span><span>Full page</span><span>Region</span><span>Block</span></div>
+  <div class="browser">
+    <div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">fieldnotes.example/dolomites</span><svg class="tb"><use href="#logo"/></svg></div>
+    <img src="img/page.png" alt="">
+  </div>
+  <img class="popup" src="img/popup.png" alt="">
 </div>
 
 <!-- значки расширения (с прозрачным фоном); для 16 и 32 px — варианты, выровненные по пикселям -->
