@@ -38,17 +38,18 @@
 - [x] Репозиторий [`and-ay/webpageshot`](https://github.com/and-ay/webpageshot) — публичный, GitHub Pages из `docs/` включены, политика открывается: https://and-ay.github.io/webpageshot/privacy.html
 - [ ] Аккаунты:
   - [x] Chrome Web Store — взнос $5, двухэтапная аутентификация (лимит аккаунта: 3 опубликованных расширения)
-  - [ ] Microsoft Partner Center (Edge)
+  - [x] Microsoft Partner Center (Edge) — Individual, страна Канада (изменить нельзя)
   - [x] addons.mozilla.org — двухэтапная аутентификация
   - [ ] addons.opera.com
 - [ ] Загрузить архив и заполнить карточку:
   - [x] Chrome Web Store — отправлено на проверку
-  - [ ] Edge Add-ons
+  - [x] Edge Add-ons — отправлено на проверку (ответ до 7 рабочих дней)
   - [x] Firefox — отправлено на проверку (только desktop); проверить скриншоты и переводы описания на странице редактирования
   - [ ] Opera
 - [ ] Дождаться проверки, ответить на замечания модераторов
 - [ ] После одобрения вставить ссылки на магазины на сайт (`docs/index.html`, раздел установки на 7 языках) и в README
   - Firefox: `https://addons.mozilla.org/firefox/addon/webpageshot/`
+  - Edge: `https://microsoftedge.microsoft.com/addons/detail/ehdenpojpiphjdpibmcolfihmpmpebcg`
 
 ## 4. Обновления
 

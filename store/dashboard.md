@@ -64,6 +64,7 @@ Host permissions: none.
 
 ## Microsoft Edge Add-ons (Partner Center)
 
+- Страница расширения: `https://microsoftedge.microsoft.com/addons/detail/ehdenpojpiphjdpibmcolfihmpmpebcg` (откроется после публикации); ИД CRX `ehdenpojpiphjdpibmcolfihmpmpebcg`, код продукта в Store `0RDCKC2J630J`.
 - Аккаунт Partner Center, бесплатно: личный аккаунт Microsoft (Outlook/Hotmail/Live или вход через GitHub), тип аккаунта **Individual**. Страну и тип аккаунта потом изменить нельзя.
 - Архив — `webpageshot-chrome-<версия>.zip`.
 - Availability: Visibility **Public**, Markets — все.
