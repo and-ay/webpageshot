@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WebPageShot — Privacy Policy</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #ffffff;
+      --fg: #1c1d22;
+      --muted: #747782;
+      --card: #f2f3f7;
+      --line: #e4e6ec;
+      --accent: #2f6feb;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1b1c21;
+        --fg: #ececf0;
+        --muted: #8e919c;
+        --card: #24262d;
+        --line: #30323a;
+      }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 system-ui, "Segoe UI", sans-serif; }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 24px 16px 48px; }
+    header { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; }
+    .logo { width: 24px; height: 24px; fill: none; stroke: var(--accent); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    nav { display: flex; flex-wrap: wrap; gap: 4px; margin-left: auto; }
+    nav a { padding: 3px 8px; border-radius: 6px; color: var(--muted); font-size: 14px; text-decoration: none; }
+    nav a:hover { background: var(--card); color: var(--fg); }
+    nav a[aria-current="true"] { background: var(--card); color: var(--fg); font-weight: 600; }
+    h1 { margin: 28px 0 4px; font-size: 26px; line-height: 1.25; }
+    h2 { margin: 28px 0 8px; font-size: 18px; }
+    .date { margin: 0; color: var(--muted); font-size: 14px; }
+    .summary { margin: 20px 0 0; padding: 12px 16px; border-radius: 6px; background: var(--card); }
+    ul { padding-left: 20px; }
+    li { margin: 6px 0; }
+    code { padding: 1px 5px; border-radius: 4px; background: var(--card); font-size: 14px; }
+    a { color: var(--accent); }
+    footer { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; overflow-wrap: anywhere; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="brand">
+      <svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M1.5 7.5v-3a3 3 0 0 1 3-3h3M16.5 1.5h3a3 3 0 0 1 3 3v3M22.5 16.5v3a3 3 0 0 1-3 3h-3M7.5 22.5h-3a3 3 0 0 1-3-3v-3"/><path stroke-width="2" d="M12.6 6h4.8c.33 0 .6.22.6.5v3c0 .28-.27.5-.6.5h-4.8c-.33 0-.6-.22-.6-.5v-3c0-.28.27-.5.6-.5zM6 6h2M6 10h2M6 14h11M6 18h12"/></svg>
+      WebPageShot
+    </span>
+    <nav>
+      <a href="#en">English</a>
+      <a href="#fr">Français</a>
+      <a href="#es">Español</a>
+      <a href="#it">Italiano</a>
+      <a href="#de">Deutsch</a>
+      <a href="#ru">Русский</a>
+      <a href="#uk">Українська</a>
+    </nav>
+  </header>
+
+  <section lang="en" id="en">
+    <h1>Privacy Policy</h1>
+    <p class="date">Last updated: October 17, 2026</p>
+    <p>WebPageShot is a browser extension that takes screenshots of web pages when you ask it to.</p>
+    <p class="summary"><b>In short:</b> WebPageShot does not collect, keep or transmit any personal data. Everything happens on your computer.</p>
+
+    <h2>What the extension handles</h2>
+    <ul>
+      <li><b>Screenshots.</b> When you start a capture, the extension takes an image of the current tab. The image is processed inside your browser and, depending on your settings, saved to a file on your computer, copied to the clipboard or shown in the preview tab. For the preview and the save window a temporary copy is kept in the extension’s local storage; it is deleted after saving, and in any case within one hour.</li>
+      <li><b>Settings.</b> Your settings (image format, what to do after a capture, whether to ask where to save) are kept in the browser’s extension storage. If browser sync is turned on, the browser may sync these settings between your devices; the extension itself does not send them anywhere.</li>
+      <li><b>Save folder.</b> If you choose a folder for screenshots (Chrome, Edge, Opera), the browser’s permission to write to it is stored locally so that the extension can save files there.</li>
+    </ul>
+
+    <h2>What the extension does not do</h2>
+    <ul>
+      <li>It does not send any data to the developer or to third parties. The extension makes no network requests.</li>
+      <li>It uses no analytics, tracking, advertising or cookies.</li>
+      <li>It does not sell or share any data.</li>
+      <li>It does not load remote code: all code is included in the extension package.</li>
+    </ul>
+
+    <h2>Permissions</h2>
+    <ul>
+      <li><code>activeTab</code> — capture the tab you are on, and only after you click the extension button, press a shortcut or choose a context menu item.</li>
+      <li><code>scripting</code> — prepare the page for the capture (scroll it, hide repeating sticky elements, show the selection frame) and restore it afterwards. The extension reads only the page layout — sizes and positions of elements — and neither stores nor transmits anything.</li>
+      <li><code>downloads</code> — save screenshots to files.</li>
+      <li><code>storage</code> — keep your settings.</li>
+      <li><code>contextMenus</code> — the “WebPageShot” item in the page context menu.</li>
+      <li><code>clipboardWrite</code> — copy screenshots to the clipboard.</li>
+      <li><code>offscreen</code> (Chrome, Edge, Opera) — a hidden extension page that writes files, because the background script in these browsers cannot do it by itself.</li>
+    </ul>
+
+    <h2>Changes</h2>
+    <p>If this policy changes, the new version will be published on this page with a new date.</p>
+
+    <h2>Contact</h2>
+    <p>Questions can be asked in the issue tracker of the project repository (link below).</p>
+  </section>
+
+  <section lang="fr" id="fr">
+    <h1>Politique de confidentialité</h1>
+    <p class="date">Dernière mise à jour : 17 octobre 2026</p>
+    <p>WebPageShot est une extension de navigateur qui réalise des captures d’écran de pages web lorsque vous le lui demandez.</p>
+    <p class="summary"><b>En bref :</b> WebPageShot ne collecte, ne conserve et ne transmet aucune donnée personnelle. Tout se passe sur votre ordinateur.</p>
+
+    <h2>Ce que l’extension traite</h2>
+    <ul>
+      <li><b>Captures d’écran.</b> Lorsque vous lancez une capture, l’extension prend une image de l’onglet actif. L’image est traitée dans votre navigateur puis, selon vos paramètres, enregistrée dans un fichier sur votre ordinateur, copiée dans le presse-papiers ou affichée dans l’onglet d’aperçu. Pour l’aperçu et la fenêtre d’enregistrement, une copie temporaire est conservée dans le stockage local de l’extension ; elle est supprimée après l’enregistrement, et dans tous les cas au bout d’une heure.</li>
+      <li><b>Paramètres.</b> Vos paramètres (format d’image, action après la capture, demander où enregistrer) sont conservés dans le stockage des extensions du navigateur. Si la synchronisation du navigateur est activée, le navigateur peut synchroniser ces paramètres entre vos appareils ; l’extension elle-même ne les envoie nulle part.</li>
+      <li><b>Dossier d’enregistrement.</b> Si vous choisissez un dossier pour les captures (Chrome, Edge, Opera), l’autorisation d’y écrire accordée par le navigateur est conservée localement afin que l’extension puisse y enregistrer les fichiers.</li>
+    </ul>
+
+    <h2>Ce que l’extension ne fait pas</h2>
+    <ul>
+      <li>Elle n’envoie aucune donnée au développeur ni à des tiers. L’extension n’effectue aucune requête réseau.</li>
+      <li>Elle n’utilise ni statistiques, ni suivi, ni publicité, ni cookies.</li>
+      <li>Elle ne vend ni ne partage aucune donnée.</li>
+      <li>Elle ne charge aucun code distant : tout le code est inclus dans le paquet de l’extension.</li>
+    </ul>
+
+    <h2>Autorisations</h2>
+    <ul>
+      <li><code>activeTab</code> — capturer l’onglet où vous vous trouvez, uniquement après un clic sur le bouton de l’extension, un raccourci clavier ou un élément du menu contextuel.</li>
+      <li><code>scripting</code> — préparer la page pour la capture (la faire défiler, masquer les éléments fixes qui se répètent, afficher le cadre de sélection) puis la remettre dans son état initial. L’extension ne lit que la mise en page — tailles et positions des éléments — et ne conserve ni ne transmet rien.</li>
+      <li><code>downloads</code> — enregistrer les captures dans des fichiers.</li>
+      <li><code>storage</code> — conserver vos paramètres.</li>
+      <li><code>contextMenus</code> — l’élément « WebPageShot » du menu contextuel de la page.</li>
+      <li><code>clipboardWrite</code> — copier les captures dans le presse-papiers.</li>
+      <li><code>offscreen</code> (Chrome, Edge, Opera) — une page cachée de l’extension qui écrit les fichiers, car le script d’arrière-plan de ces navigateurs ne peut pas le faire lui-même.</li>
+    </ul>
+
+    <h2>Modifications</h2>
+    <p>Si cette politique change, la nouvelle version sera publiée sur cette page avec une nouvelle date.</p>
+
+    <h2>Contact</h2>
+    <p>Vous pouvez poser vos questions dans le suivi des problèmes (issues) du dépôt du projet (lien ci-dessous).</p>
+  </section>
+
+  <section lang="es" id="es">
+    <h1>Política de privacidad</h1>
+    <p class="date">Última actualización: 17 de octubre de 2026</p>
+    <p>WebPageShot es una extensión de navegador que hace capturas de páginas web cuando se lo pides.</p>
+    <p class="summary"><b>En resumen:</b> WebPageShot no recopila, no guarda y no transmite ningún dato personal. Todo ocurre en tu ordenador.</p>
+
+    <h2>Qué maneja la extensión</h2>
+    <ul>
+      <li><b>Capturas.</b> Cuando inicias una captura, la extensión toma una imagen de la pestaña actual. La imagen se procesa dentro del navegador y, según tu configuración, se guarda en un archivo en tu ordenador, se copia al portapapeles o se muestra en la pestaña de vista previa. Para la vista previa y la ventana de guardado se conserva una copia temporal en el almacenamiento local de la extensión; se elimina después de guardar y, en cualquier caso, al cabo de una hora.</li>
+      <li><b>Configuración.</b> Tu configuración (formato de imagen, qué hacer después de capturar, si preguntar dónde guardar) se guarda en el almacenamiento de extensiones del navegador. Si la sincronización del navegador está activada, el navegador puede sincronizar esta configuración entre tus dispositivos; la extensión en sí no la envía a ninguna parte.</li>
+      <li><b>Carpeta de guardado.</b> Si eliges una carpeta para las capturas (Chrome, Edge, Opera), el permiso del navegador para escribir en ella se guarda localmente para que la extensión pueda guardar archivos allí.</li>
+    </ul>
+
+    <h2>Qué no hace la extensión</h2>
+    <ul>
+      <li>No envía ningún dato al desarrollador ni a terceros. La extensión no realiza solicitudes de red.</li>
+      <li>No usa analíticas, seguimiento, publicidad ni cookies.</li>
+      <li>No vende ni comparte ningún dato.</li>
+      <li>No carga código remoto: todo el código está incluido en el paquete de la extensión.</li>
+    </ul>
+
+    <h2>Permisos</h2>
+    <ul>
+      <li><code>activeTab</code> — capturar la pestaña en la que estás, y solo después de que hagas clic en el botón de la extensión, pulses un atajo o elijas una opción del menú contextual.</li>
+      <li><code>scripting</code> — preparar la página para la captura (desplazarla, ocultar los elementos fijos que se repiten, mostrar el marco de selección) y luego devolverla a su estado original. La extensión solo lee el diseño de la página —tamaños y posiciones de los elementos— y no guarda ni transmite nada.</li>
+      <li><code>downloads</code> — guardar las capturas en archivos.</li>
+      <li><code>storage</code> — guardar tu configuración.</li>
+      <li><code>contextMenus</code> — la opción «WebPageShot» del menú contextual de la página.</li>
+      <li><code>clipboardWrite</code> — copiar las capturas al portapapeles.</li>
+      <li><code>offscreen</code> (Chrome, Edge, Opera) — una página oculta de la extensión que escribe los archivos, porque el script en segundo plano de estos navegadores no puede hacerlo por sí mismo.</li>
+    </ul>
+
+    <h2>Cambios</h2>
+    <p>Si esta política cambia, la nueva versión se publicará en esta página con una nueva fecha.</p>
+
+    <h2>Contacto</h2>
+    <p>Puedes hacer preguntas en el gestor de incidencias (issues) del repositorio del proyecto (enlace abajo).</p>
+  </section>
+
+  <section lang="it" id="it">
+    <h1>Informativa sulla privacy</h1>
+    <p class="date">Ultimo aggiornamento: 17 ottobre 2026</p>
+    <p>WebPageShot è un’estensione del browser che cattura screenshot delle pagine web quando glielo chiedi.</p>
+    <p class="summary"><b>In breve:</b> WebPageShot non raccoglie, non conserva e non trasmette alcun dato personale. Tutto avviene sul tuo computer.</p>
+
+    <h2>Cosa gestisce l’estensione</h2>
+    <ul>
+      <li><b>Screenshot.</b> Quando avvii una cattura, l’estensione acquisisce un’immagine della scheda attiva. L’immagine viene elaborata nel browser e, in base alle impostazioni, salvata in un file sul tuo computer, copiata negli appunti o mostrata nella scheda di anteprima. Per l’anteprima e la finestra di salvataggio una copia temporanea viene conservata nella memoria locale dell’estensione; viene eliminata dopo il salvataggio e comunque entro un’ora.</li>
+      <li><b>Impostazioni.</b> Le tue impostazioni (formato dell’immagine, cosa fare dopo la cattura, se chiedere dove salvare) sono conservate nella memoria delle estensioni del browser. Se la sincronizzazione del browser è attiva, il browser può sincronizzare queste impostazioni tra i tuoi dispositivi; l’estensione stessa non le invia da nessuna parte.</li>
+      <li><b>Cartella di salvataggio.</b> Se scegli una cartella per gli screenshot (Chrome, Edge, Opera), l’autorizzazione del browser a scrivere in essa viene conservata localmente, così che l’estensione possa salvarvi i file.</li>
+    </ul>
+
+    <h2>Cosa l’estensione non fa</h2>
+    <ul>
+      <li>Non invia alcun dato allo sviluppatore né a terzi. L’estensione non effettua richieste di rete.</li>
+      <li>Non usa statistiche, tracciamento, pubblicità né cookie.</li>
+      <li>Non vende né condivide alcun dato.</li>
+      <li>Non carica codice remoto: tutto il codice è incluso nel pacchetto dell’estensione.</li>
+    </ul>
+
+    <h2>Autorizzazioni</h2>
+    <ul>
+      <li><code>activeTab</code> — catturare la scheda in cui ti trovi, e solo dopo un clic sul pulsante dell’estensione, una scorciatoia da tastiera o una voce del menu contestuale.</li>
+      <li><code>scripting</code> — preparare la pagina per la cattura (scorrerla, nascondere gli elementi fissi che si ripetono, mostrare il riquadro di selezione) e poi riportarla allo stato originale. L’estensione legge solo il layout della pagina — dimensioni e posizioni degli elementi — e non conserva né trasmette nulla.</li>
+      <li><code>downloads</code> — salvare gli screenshot in file.</li>
+      <li><code>storage</code> — conservare le tue impostazioni.</li>
+      <li><code>contextMenus</code> — la voce «WebPageShot» nel menu contestuale della pagina.</li>
+      <li><code>clipboardWrite</code> — copiare gli screenshot negli appunti.</li>
+      <li><code>offscreen</code> (Chrome, Edge, Opera) — una pagina nascosta dell’estensione che scrive i file, perché lo script in background di questi browser non può farlo da solo.</li>
+    </ul>
+
+    <h2>Modifiche</h2>
+    <p>Se questa informativa cambia, la nuova versione sarà pubblicata su questa pagina con una nuova data.</p>
+
+    <h2>Contatti</h2>
+    <p>Puoi porre domande nel sistema di segnalazioni (issues) del repository del progetto (link qui sotto).</p>
+  </section>
+
+  <section lang="de" id="de">
+    <h1>Datenschutzerklärung</h1>
+    <p class="date">Zuletzt aktualisiert: 17. Oktober 2026</p>
+    <p>WebPageShot ist eine Browsererweiterung, die Screenshots von Webseiten erstellt, wenn Sie sie darum bitten.</p>
+    <p class="summary"><b>Kurz gesagt:</b> WebPageShot erhebt, speichert und überträgt keinerlei personenbezogene Daten. Alles geschieht auf Ihrem Computer.</p>
+
+    <h2>Was die Erweiterung verarbeitet</h2>
+    <ul>
+      <li><b>Screenshots.</b> Wenn Sie eine Aufnahme starten, erstellt die Erweiterung ein Bild des aktuellen Tabs. Das Bild wird im Browser verarbeitet und je nach Einstellung als Datei auf Ihrem Computer gespeichert, in die Zwischenablage kopiert oder im Vorschau-Tab angezeigt. Für die Vorschau und das Speicherfenster wird eine temporäre Kopie im lokalen Speicher der Erweiterung abgelegt; sie wird nach dem Speichern gelöscht, spätestens aber nach einer Stunde.</li>
+      <li><b>Einstellungen.</b> Ihre Einstellungen (Bildformat, Aktionen nach der Aufnahme, ob nach dem Speicherort gefragt wird) werden im Erweiterungsspeicher des Browsers abgelegt. Ist die Browser-Synchronisierung aktiviert, kann der Browser diese Einstellungen zwischen Ihren Geräten synchronisieren; die Erweiterung selbst sendet sie nirgendwohin.</li>
+      <li><b>Speicherordner.</b> Wenn Sie einen Ordner für Screenshots wählen (Chrome, Edge, Opera), wird die Schreibberechtigung des Browsers für diesen Ordner lokal gespeichert, damit die Erweiterung dort Dateien ablegen kann.</li>
+    </ul>
+
+    <h2>Was die Erweiterung nicht tut</h2>
+    <ul>
+      <li>Sie sendet keine Daten an den Entwickler oder an Dritte. Die Erweiterung stellt keine Netzwerkanfragen.</li>
+      <li>Sie verwendet keine Analysen, kein Tracking, keine Werbung und keine Cookies.</li>
+      <li>Sie verkauft oder teilt keine Daten.</li>
+      <li>Sie lädt keinen externen Code: Der gesamte Code ist im Erweiterungspaket enthalten.</li>
+    </ul>
+
+    <h2>Berechtigungen</h2>
+    <ul>
+      <li><code>activeTab</code> — den Tab aufnehmen, in dem Sie sich befinden, und zwar nur nach einem Klick auf die Schaltfläche der Erweiterung, einem Tastenkürzel oder einem Eintrag im Kontextmenü.</li>
+      <li><code>scripting</code> — die Seite für die Aufnahme vorbereiten (scrollen, sich wiederholende fixierte Elemente ausblenden, den Auswahlrahmen anzeigen) und sie danach wiederherstellen. Die Erweiterung liest nur das Seitenlayout — Größen und Positionen von Elementen — und speichert oder überträgt nichts.</li>
+      <li><code>downloads</code> — Screenshots als Dateien speichern.</li>
+      <li><code>storage</code> — Ihre Einstellungen speichern.</li>
+      <li><code>contextMenus</code> — der Eintrag „WebPageShot“ im Kontextmenü der Seite.</li>
+      <li><code>clipboardWrite</code> — Screenshots in die Zwischenablage kopieren.</li>
+      <li><code>offscreen</code> (Chrome, Edge, Opera) — eine verborgene Seite der Erweiterung, die Dateien schreibt, weil das Hintergrundskript dieser Browser das nicht selbst kann.</li>
+    </ul>
+
+    <h2>Änderungen</h2>
+    <p>Wenn sich diese Erklärung ändert, wird die neue Fassung mit neuem Datum auf dieser Seite veröffentlicht.</p>
+
+    <h2>Kontakt</h2>
+    <p>Fragen können Sie im Issue-Tracker des Projekt-Repositorys stellen (Link unten).</p>
+  </section>
+
+  <section lang="ru" id="ru">
+    <h1>Политика конфиденциальности</h1>
+    <p class="date">Обновлено: 17 октября 2026 г.</p>
+    <p>WebPageShot — расширение для браузера, которое делает скриншоты веб-страниц, когда вы его об этом просите.</p>
+    <p class="summary"><b>Коротко:</b> WebPageShot не собирает, не хранит у себя и не передаёт никаких персональных данных. Всё происходит на вашем компьютере.</p>
+
+    <h2>С чем работает расширение</h2>
+    <ul>
+      <li><b>Скриншоты.</b> Когда вы запускаете съёмку, расширение снимает изображение текущей вкладки. Оно обрабатывается прямо в браузере и, в зависимости от настроек, сохраняется в файл на вашем компьютере, копируется в буфер обмена или открывается во вкладке превью. Для превью и окна сохранения временная копия хранится в локальном хранилище расширения; она удаляется после сохранения и в любом случае не позже чем через час.</li>
+      <li><b>Настройки.</b> Ваши настройки (формат, что делать после снимка, спрашивать ли, куда сохранять) хранятся в хранилище расширений браузера. Если в браузере включена синхронизация, браузер может синхронизировать эти настройки между вашими устройствами; само расширение никуда их не отправляет.</li>
+      <li><b>Папка сохранения.</b> Если вы выбрали папку для скриншотов (Chrome, Edge, Opera), разрешение браузера на запись в неё хранится локально, чтобы расширение могло сохранять туда файлы.</li>
+    </ul>
+
+    <h2>Чего расширение не делает</h2>
+    <ul>
+      <li>Не отправляет данные ни разработчику, ни третьим лицам. Расширение не делает сетевых запросов.</li>
+      <li>Не использует аналитику, отслеживание, рекламу и cookie.</li>
+      <li>Не продаёт и не передаёт данные.</li>
+      <li>Не загружает код извне: весь код входит в пакет расширения.</li>
+    </ul>
+
+    <h2>Разрешения</h2>
+    <ul>
+      <li><code>activeTab</code> — снять вкладку, на которой вы находитесь, и только после нажатия кнопки расширения, горячей клавиши или пункта контекстного меню.</li>
+      <li><code>scripting</code> — подготовить страницу к съёмке (прокрутить её, убрать повторяющиеся закреплённые элементы, показать рамку выделения) и затем вернуть её в исходное состояние. Расширение читает только разметку страницы — размеры и положение элементов — и ничего не сохраняет и не передаёт.</li>
+      <li><code>downloads</code> — сохранять скриншоты в файлы.</li>
+      <li><code>storage</code> — хранить ваши настройки.</li>
+      <li><code>contextMenus</code> — пункт «WebPageShot» в контекстном меню страницы.</li>
+      <li><code>clipboardWrite</code> — копировать скриншоты в буфер обмена.</li>
+      <li><code>offscreen</code> (Chrome, Edge, Opera) — скрытая страница расширения, которая записывает файлы: фоновый скрипт в этих браузерах сам этого не умеет.</li>
+    </ul>
+
+    <h2>Изменения</h2>
+    <p>Если политика изменится, новая версия будет опубликована на этой странице с новой датой.</p>
+
+    <h2>Контакты</h2>
+    <p>Вопросы можно задать в разделе Issues репозитория проекта (ссылка ниже).</p>
+  </section>
+
+  <section lang="uk" id="uk">
+    <h1>Політика конфіденційності</h1>
+    <p class="date">Оновлено: 17 жовтня 2026 р.</p>
+    <p>WebPageShot — розширення для браузера, яке робить скриншоти вебсторінок, коли ви його про це просите.</p>
+    <p class="summary"><b>Коротко:</b> WebPageShot не збирає, не зберігає в себе й не передає жодних персональних даних. Усе відбувається на вашому комп’ютері.</p>
+
+    <h2>З чим працює розширення</h2>
+    <ul>
+      <li><b>Скриншоти.</b> Коли ви запускаєте знімання, розширення знімає зображення поточної вкладки. Воно обробляється просто в браузері й, залежно від налаштувань, зберігається у файл на вашому комп’ютері, копіюється в буфер обміну або відкривається у вкладці перегляду. Для перегляду й вікна збереження тимчасова копія зберігається в локальному сховищі розширення; вона видаляється після збереження і в будь-якому разі не пізніше ніж через годину.</li>
+      <li><b>Налаштування.</b> Ваші налаштування (формат, що робити після знімка, чи питати, куди зберігати) зберігаються в сховищі розширень браузера. Якщо в браузері ввімкнено синхронізацію, браузер може синхронізувати ці налаштування між вашими пристроями; саме розширення нікуди їх не надсилає.</li>
+      <li><b>Папка збереження.</b> Якщо ви вибрали папку для скриншотів (Chrome, Edge, Opera), дозвіл браузера на запис у неї зберігається локально, щоб розширення могло зберігати туди файли.</li>
+    </ul>
+
+    <h2>Чого розширення не робить</h2>
+    <ul>
+      <li>Не надсилає даних ні розробнику, ні третім особам. Розширення не робить мережевих запитів.</li>
+      <li>Не використовує аналітику, відстеження, рекламу й cookie.</li>
+      <li>Не продає й не передає даних.</li>
+      <li>Не завантажує код ззовні: увесь код входить до пакета розширення.</li>
+    </ul>
+
+    <h2>Дозволи</h2>
+    <ul>
+      <li><code>activeTab</code> — зняти вкладку, на якій ви перебуваєте, і лише після натискання кнопки розширення, гарячої клавіші або пункту контекстного меню.</li>
+      <li><code>scripting</code> — підготувати сторінку до знімання (прокрутити її, прибрати закріплені елементи, що повторюються, показати рамку виділення) і потім повернути її до початкового стану. Розширення читає лише розмітку сторінки — розміри й положення елементів — і нічого не зберігає й не передає.</li>
+      <li><code>downloads</code> — зберігати скриншоти у файли.</li>
+      <li><code>storage</code> — зберігати ваші налаштування.</li>
+      <li><code>contextMenus</code> — пункт «WebPageShot» у контекстному меню сторінки.</li>
+      <li><code>clipboardWrite</code> — копіювати скриншоти в буфер обміну.</li>
+      <li><code>offscreen</code> (Chrome, Edge, Opera) — прихована сторінка розширення, яка записує файли: фоновий скрипт у цих браузерах сам цього не вміє.</li>
+    </ul>
+
+    <h2>Зміни</h2>
+    <p>Якщо політика зміниться, нову версію буде опубліковано на цій сторінці з новою датою.</p>
+
+    <h2>Контакти</h2>
+    <p>Запитання можна поставити в розділі Issues репозиторію проєкту (посилання нижче).</p>
+  </section>
+
+  <footer>
+    GitHub Issues: <a href="https://github.com/and-ay/webpageshot/issues">https://github.com/and-ay/webpageshot/issues</a>
+  </footer>
+</div>
+<script>
+  // Язык: из адреса (#ru), иначе по языку браузера, иначе английский. Без JS видны все языки подряд.
+  const sections = [...document.querySelectorAll('section[lang]')];
+  const langs = sections.map((s) => s.lang);
+  const pick = () => {
+    const hash = location.hash.slice(1);
+    if (langs.includes(hash)) return hash;
+    for (const l of navigator.languages || [navigator.language]) {
+      const base = String(l).slice(0, 2).toLowerCase();
+      if (langs.includes(base)) return base;
+    }
+    return 'en';
+  };
+  const show = () => {
+    const lang = pick();
+    for (const s of sections) s.hidden = s.lang !== lang;
+    for (const a of document.querySelectorAll('nav a')) a.setAttribute('aria-current', String(a.hash === `#${lang}`));
+    document.documentElement.lang = lang;
+    scrollTo(0, 0);
+  };
+  addEventListener('hashchange', show);
+  show();
+</script>
+</body>
+</html>

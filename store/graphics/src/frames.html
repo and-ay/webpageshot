@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>WebPageShot — store graphics</title>
+<!-- Картинки для магазинов: каждый .frame снимается отдельно в своём точном размере (см. render.ps1). -->
+<style>
+  :root {
+    --accent: #2f6feb;
+    --accent-dark: #1d4fc4;
+    --fg: #15171c;
+    --muted: #5d6270;
+    --line: #dfe3ec;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: transparent; font-family: "Segoe UI", system-ui, sans-serif; }
+  .icon { margin-bottom: 0; }
+  .icon img { display: block; width: 100%; height: 100%; }
+  .frame { position: relative; overflow: hidden; margin-bottom: 40px; color: var(--fg); }
+
+  /* скриншоты 1280×800 */
+  .shot {
+    width: 1280px; height: 800px;
+    display: grid; grid-template-columns: 400px 1fr; align-items: center; gap: 48px;
+    padding: 0 64px 0 72px;
+    background:
+      radial-gradient(900px 600px at 100% 0%, #dfe9ff 0%, transparent 60%),
+      radial-gradient(700px 500px at 0% 100%, #eef3ff 0%, transparent 60%),
+      #f7f9fd;
+  }
+  .brand { position: absolute; left: 72px; top: 56px; display: flex; align-items: center; gap: 10px; font-size: 20px; font-weight: 700; }
+  .logo { width: 24px; height: 24px; fill: none; stroke: var(--accent); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+  h1 { margin: 0 0 20px; font-size: 46px; line-height: 1.1; letter-spacing: -1px; }
+  h1 em { font-style: normal; color: var(--accent); }
+  .sub { margin: 0; font-size: 21px; line-height: 1.5; color: var(--muted); }
+  .points { margin: 28px 0 0; padding: 0; list-style: none; font-size: 18px; }
+  .points li { display: flex; align-items: center; gap: 12px; margin: 12px 0; }
+  .points b { flex: none; display: inline-flex; justify-content: center; min-width: 58px; padding: 3px 8px; border-radius: 6px;
+              background: #e3ebfd; color: var(--accent-dark); font-size: 15px; font-weight: 600; }
+
+  /* окно браузера */
+  .browser { position: relative; width: 740px; border-radius: 12px; overflow: hidden; background: #fff;
+             box-shadow: 0 24px 60px rgba(25, 40, 80, .22), 0 0 0 1px rgba(25, 40, 80, .08); }
+  .chrome { display: flex; align-items: center; gap: 8px; height: 40px; padding: 0 14px; background: #eef0f4; border-bottom: 1px solid var(--line); }
+  .dot { width: 11px; height: 11px; border-radius: 50%; background: #cfd3db; }
+  .url { flex: 1; margin-left: 10px; height: 26px; border-radius: 13px; background: #fff; color: #7b808c; font-size: 13px; line-height: 26px; padding: 0 14px; }
+  .tb { width: 24px; height: 24px; fill: none; stroke: var(--accent); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+  .browser > img { display: block; width: 100%; }
+  /* крупнее: показываем часть кадра (1280×800) в масштабе 0.787 */
+  .view { height: 598px; overflow: hidden; }
+  .view img { display: block; width: 1008px; margin-left: var(--dx, 0); }
+
+  /* 1: popup поверх страницы */
+  .s1 .visual { position: relative; height: 640px; }
+  .s1 .browser { position: absolute; left: 0; top: 60px; }
+  .s1 .popup { position: absolute; left: 432px; top: 106px; width: 300px; border-radius: 12px;
+               box-shadow: 0 24px 60px rgba(25, 40, 80, .3), 0 0 0 1px rgba(25, 40, 80, .08); }
+
+  /* 2: длинный снимок всей страницы */
+  .s2 .visual { position: relative; height: 800px; }
+  .s2 .long { position: absolute; left: 70px; top: 41px; width: 440px; border-radius: 10px; overflow: hidden; background: #fff;
+              box-shadow: 0 24px 60px rgba(25, 40, 80, .22), 0 0 0 1px rgba(25, 40, 80, .08); }
+  .s2 .long img { display: block; width: 100%; }
+  .s2 .size { position: absolute; left: 534px; top: 72px; padding: 8px 14px; border-radius: 8px; background: var(--fg); color: #fff; font-size: 15px; font-weight: 600; }
+  .s2 .size small { display: block; font-weight: 400; color: #b9bfcc; }
+  .s2 .ruler { position: absolute; left: 550px; top: 136px; bottom: 41px; width: 2px; background: repeating-linear-gradient(var(--accent) 0 8px, transparent 8px 14px); }
+
+  /* 5: превью и варианты */
+  .s5 .visual { position: relative; }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .chip { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 8px; background: #fff;
+          box-shadow: 0 0 0 1px var(--line); font-size: 16px; font-weight: 600; }
+  .chip i { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+  .privacy { display: flex; gap: 12px; align-items: flex-start; margin-top: 32px; padding: 14px 16px; border-radius: 10px; background: #e7f6ee; color: #185c3a; font-size: 16px; line-height: 1.4; }
+  .privacy svg { flex: none; width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* промо-плитка 440×280 */
+  .tile { width: 440px; height: 280px; padding: 30px 32px; color: #fff;
+          background: radial-gradient(420px 300px at 100% 0%, #5b8ff5 0%, transparent 70%), linear-gradient(135deg, #2f6feb 0%, #1a46b8 100%); }
+  .tile .mark { width: 48px; height: 48px; fill: none; stroke: #fff; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+  .tile .name { margin-top: 18px; font-size: 34px; font-weight: 700; letter-spacing: -.5px; }
+  .tile .tag { margin-top: 6px; width: 210px; font-size: 16px; line-height: 1.35; color: #dbe6ff; }
+  .tile .page { position: absolute; right: -60px; top: 138px; width: 200px; transform: rotate(-3deg); border-radius: 8px; overflow: hidden;
+                box-shadow: 0 18px 40px rgba(0, 0, 0, .3); }
+  .tile .page img { display: block; width: 100%; }
+  .tile .sel { position: absolute; left: 22px; top: 18px; width: 96px; height: 44px; border: 2px solid #fff; background: rgba(255, 255, 255, .18); border-radius: 2px; }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="logo" viewBox="0 0 24 24"><path d="M1.5 7.5v-3a3 3 0 0 1 3-3h3M16.5 1.5h3a3 3 0 0 1 3 3v3M22.5 16.5v3a3 3 0 0 1-3 3h-3M7.5 22.5h-3a3 3 0 0 1-3-3v-3"/><path stroke-width="2" d="M12.6 6h4.8c.33 0 .6.22.6.5v3c0 .28-.27.5-.6.5h-4.8c-.33 0-.6-.22-.6-.5v-3c0-.28.27-.5.6-.5zM6 6h2M6 10h2M6 14h11M6 18h12"/></symbol>
+</svg>
+
+<!-- 1 -->
+<div class="frame shot s1" id="shot-1">
+  <div class="brand"><svg class="logo"><use href="#logo"/></svg>WebPageShot</div>
+  <div>
+    <h1>Web page screenshots in&nbsp;<em>one&nbsp;click</em></h1>
+    <p class="sub">Four capture modes, each a keyboard shortcut away.</p>
+    <ul class="points">
+      <li><b>Alt+S</b>Visible area</li>
+      <li><b>Alt+A</b>Full page</li>
+      <li><b>Alt+R</b>Selected region</li>
+      <li><b>Alt+B</b>Single page block</li>
+    </ul>
+  </div>
+  <div class="visual">
+    <div class="browser">
+      <div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">fieldnotes.example/dolomites</span><svg class="tb"><use href="#logo"/></svg></div>
+      <img src="img/page.png" alt="">
+    </div>
+    <img class="popup" src="img/popup.png" alt="">
+  </div>
+</div>
+
+<!-- 2 -->
+<div class="frame shot s2" id="shot-2">
+  <div class="brand"><svg class="logo"><use href="#logo"/></svg>WebPageShot</div>
+  <div>
+    <h1>The <em>whole page</em>, top to bottom</h1>
+    <p class="sub">WebPageShot scrolls the page and stitches the frames into one clean image.</p>
+    <ul class="points">
+      <li><b>✓</b>Sticky headers appear only once</li>
+      <li><b>✓</b>Floating buttons don’t repeat</li>
+      <li><b>✓</b>Side menus captured in full</li>
+    </ul>
+  </div>
+  <div class="visual">
+    <div class="long"><img src="img/full.png" alt=""></div>
+    <div class="size">1280 × 2090 px<small>one PNG file</small></div>
+    <div class="ruler"></div>
+  </div>
+</div>
+
+<!-- 3 -->
+<div class="frame shot s3" id="shot-3">
+  <div class="brand"><svg class="logo"><use href="#logo"/></svg>WebPageShot</div>
+  <div>
+    <h1>Select <em>any region</em></h1>
+    <p class="sub">Drag a frame with the mouse. The page scrolls while you select, so the region can be larger than the screen.</p>
+  </div>
+  <div class="visual">
+    <div class="browser">
+      <div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">fieldnotes.example/dolomites</span><svg class="tb"><use href="#logo"/></svg></div>
+      <div class="view" style="--dx: -47px"><img src="img/region.png" alt=""></div>
+    </div>
+  </div>
+</div>
+
+<!-- 4 -->
+<div class="frame shot s4" id="shot-4">
+  <div class="brand"><svg class="logo"><use href="#logo"/></svg>WebPageShot</div>
+  <div>
+    <h1>Capture a <em>single&nbsp;block</em></h1>
+    <p class="sub">Hover over any element of the page and click. Use ↑ and ↓ to switch to the outer or inner block.</p>
+  </div>
+  <div class="visual">
+    <div class="browser">
+      <div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">fieldnotes.example/dolomites</span><svg class="tb"><use href="#logo"/></svg></div>
+      <div class="view" style="--dx: -31px"><img src="img/element.png" alt=""></div>
+    </div>
+  </div>
+</div>
+
+<!-- 5 -->
+<div class="frame shot s5" id="shot-5">
+  <div class="brand"><svg class="logo"><use href="#logo"/></svg>WebPageShot</div>
+  <div>
+    <h1>Save, copy <em>or&nbsp;preview</em></h1>
+    <p class="sub">Choose what happens after a capture — in any combination.</p>
+    <div class="chips">
+      <span class="chip"><i></i>PNG or JPG file</span>
+      <span class="chip"><i></i>Clipboard</span>
+      <span class="chip"><i></i>Preview tab</span>
+    </div>
+    <div class="privacy">
+      <svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+      No data collection. Screenshots never leave your computer.
+    </div>
+  </div>
+  <div class="visual">
+    <div class="browser">
+      <div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">Screenshot — WebPageShot</span></div>
+      <img src="img/preview.png" alt="">
+    </div>
+  </div>
+</div>
+
+<!-- промо-плитка -->
+<div class="frame tile" id="tile">
+  <svg class="mark"><use href="#logo"/></svg>
+  <div class="name">WebPageShot</div>
+  <div class="tag">Full-page, region and element screenshots</div>
+  <div class="page"><img src="img/page.png" alt=""><div class="sel"></div></div>
+</div>
+
+<!-- значки расширения (с прозрачным фоном); для 16 и 32 px — варианты, выровненные по пикселям -->
+<div class="frame icon" id="icon-16" style="width:16px;height:16px"><img src="logo-16.svg" alt=""></div>
+<div class="frame icon" id="icon-24" style="width:24px;height:24px"><img src="logo-24.svg" alt=""></div>
+<div class="frame icon" id="icon-32" style="width:32px;height:32px"><img src="logo-32.svg" alt=""></div>
+<div class="frame icon" id="icon-48" style="width:48px;height:48px"><img src="logo-24.svg" alt=""></div>
+<div class="frame icon" id="icon-128" style="width:128px;height:128px;padding:16px"><img src="logo.svg" alt=""></div>
+
+</body>
+</html>

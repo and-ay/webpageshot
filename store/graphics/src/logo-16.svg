@@ -1,0 +1,5 @@
+<!-- Вариант логотипа для 16×16: линии по пиксельной сетке (рамка 2 px, содержимое 1 px), чтобы не размывалось. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="#2f6feb">
+  <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M1 5V3a2 2 0 0 1 2-2h2M11 1h2a2 2 0 0 1 2 2v2M15 11v2a2 2 0 0 1-2 2h-2M5 15H3a2 2 0 0 1-2-2v-2"/>
+  <path stroke-width="1" d="M3 3.5h3M3 6.5h3M3 9.5h8M3 12.5h10M8.5 3.5h4v3h-4z"/>
+</svg>

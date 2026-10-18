@@ -1,0 +1,6 @@
+<!-- Исходник логотипа, сетка 16×16. Для 16, 24 и 32 px есть варианты, выровненные по пикселям. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="#2f6feb" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke-width="2" d="M1 5V3a2 2 0 0 1 2-2h2M11 1h2a2 2 0 0 1 2 2v2M15 11v2a2 2 0 0 1-2 2h-2M5 15H3a2 2 0 0 1-2-2v-2"/>
+  <path stroke-width="1.5" d="M8.4 4h3.2c.221 0 .4.149.4.333v2c0 .184-.179.334-.4.334H8.4c-.221 0-.4-.15-.4-.334v-2c0-.184.179-.333.4-.333z"/>
+  <path stroke-width="1.5" d="M4.333 4h1.334M4.333 6.667h1.334M4.333 9.333H11M4.333 12H12"/>
+</svg>

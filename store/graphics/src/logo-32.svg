@@ -1,0 +1,6 @@
+<!-- Вариант логотипа для 32×32: рамка 4 px, содержимое 3 px, по пиксельной сетке, чтобы не размывалось. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" stroke="#2f6feb" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke-width="4" d="M2 10V6a4 4 0 0 1 4-4h4M22 2h4a4 4 0 0 1 4 4v4M30 22v4a4 4 0 0 1-4 4h-4M10 30H6a4 4 0 0 1-4-4v-4"/>
+  <path stroke-width="3" d="M17.5 8.5h6c.6 0 1 .4 1 1v3c0 .6-.4 1-1 1h-6c-.6 0-1-.4-1-1v-3c0-.6.4-1 1-1z"/>
+  <path stroke-width="3" d="M8.5 8.5h3M8.5 13.5h3M8.5 18.5h14M8.5 23.5h16"/>
+</svg>

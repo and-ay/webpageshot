@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>WebPageShot</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M1.5 7.5v-3a3 3 0 0 1 3-3h3M16.5 1.5h3a3 3 0 0 1 3 3v3M22.5 16.5v3a3 3 0 0 1-3 3h-3M7.5 22.5h-3a3 3 0 0 1-3-3v-3"/><path stroke-width="2" d="M12.6 6h4.8c.33 0 .6.22.6.5v3c0 .28-.27.5-.6.5h-4.8c-.33 0-.6-.22-.6-.5v-3c0-.28.27-.5.6-.5zM6 6h2M6 10h2M6 14h11M6 18h12"/></svg>
+    <span class="name">WebPageShot</span>
+    <a href="#" id="shortcuts" class="settings-link" data-i18n-title="settingsTitle" data-i18n-aria="settings"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></a>
+  </header>
+
+  <div class="error" id="error" hidden></div>
+  <div class="warn" id="warn" data-i18n="popupWarn" hidden></div>
+
+  <div class="modes">
+    <button data-mode="visible">
+      <span class="top">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 8.5h18"/></svg>
+        <kbd data-command="shot-visible"></kbd>
+      </span>
+      <span class="label" data-i18n="modeVisible"></span>
+    </button>
+    <button data-mode="full">
+      <span class="top">
+        <svg viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="1.5"/><path d="M12 7.5v8M9 12.5l3 3 3-3"/></svg>
+        <kbd data-command="shot-full"></kbd>
+      </span>
+      <span class="label" data-i18n="modeFull"></span>
+    </button>
+    <button data-mode="region">
+      <span class="top">
+        <svg viewBox="0 0 24 24"><path d="M4 8.5V5a1 1 0 0 1 1-1h3.5M15.5 4H19a1 1 0 0 1 1 1v3.5M20 15.5V19a1 1 0 0 1-1 1h-3.5M8.5 20H5a1 1 0 0 1-1-1v-3.5"/><path d="M12 9v6M9 12h6"/></svg>
+        <kbd data-command="shot-region"></kbd>
+      </span>
+      <span class="label" data-i18n="modeRegion"></span>
+    </button>
+    <button data-mode="element">
+      <span class="top">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="13" height="10" rx="1.5" stroke-dasharray="2.6 2.2"/><path d="M12 11l8.5 3.2-3.6 1.5-1.6 3.8z"/></svg>
+        <kbd data-command="shot-element"></kbd>
+      </span>
+      <span class="label" data-i18n="modeElement"></span>
+    </button>
+  </div>
+
+  <section class="settings">
+    <div class="row">
+      <span data-i18n="format"></span>
+      <div class="seg">
+        <label><input type="radio" name="format" value="png"><span>PNG</span></label>
+        <label><input type="radio" name="format" value="jpeg"><span>JPG</span></label>
+      </div>
+    </div>
+    <div class="group">
+      <span class="group-title" data-i18n="afterCapture"></span>
+      <label class="check">
+        <input type="checkbox" name="preview">
+        <span data-i18n="optPreview"></span>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="save">
+        <span data-i18n="optSave"></span>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="copy">
+        <span data-i18n="optCopy"></span>
+      </label>
+    </div>
+    <div class="row save-option" id="folder-row">
+      <span data-i18n="folder"></span>
+      <div class="folder">
+        <button id="folder" class="folder-name" data-i18n-title="folderPickTitle"></button>
+        <button id="folder-reset" class="folder-reset" data-i18n-title="folderResetTitle" hidden>×</button>
+      </div>
+    </div>
+    <label class="check save-option">
+      <input type="checkbox" name="saveAs">
+      <span data-i18n="optSaveAs"></span>
+    </label>
+  </section>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
