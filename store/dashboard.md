@@ -131,7 +131,7 @@ Questions: https://github.com/and-ay/webpageshot/issues
 - Category: **Productivity**.
 - Summary — `extDescription` из `_locales`; Description — из `description.md`.
 - Картинки — отдельный набор в `graphics/opera/` (собирается тем же `render.ps1`):
-  - скриншоты `screenshot-1…5.png` — 800×500: Opera не принимает больше 800×600 (рекомендует 612×408);
+  - скриншоты `screenshot-1…3.png` — 800×500 (общий вид, вся страница, блок): Opera принимает не больше трёх и не больше 800×600;
   - значок `icon-64.png` — 64×64 без полей: Opera просит, чтобы значок занимал не меньше ~85% площади.
 - License: без своего EULA Opera распространяет расширение по CC BY-NC-ND 4.0, поэтому указать Apache 2.0 и ссылку `https://github.com/and-ay/webpageshot/blob/main/LICENSE`.
 - Support page — `https://and-ay.github.io/webpageshot/`.

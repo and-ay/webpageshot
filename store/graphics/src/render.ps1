@@ -12,9 +12,9 @@ $root = Split-Path (Split-Path (Split-Path $src))
 $frames = [ordered]@{
   'shot-1' = @{ path = 'store\graphics\screenshot-1.png'; opera = 'store\graphics\opera\screenshot-1.png' }
   'shot-2' = @{ path = 'store\graphics\screenshot-2.png'; opera = 'store\graphics\opera\screenshot-2.png' }
-  'shot-3' = @{ path = 'store\graphics\screenshot-3.png'; opera = 'store\graphics\opera\screenshot-3.png' }
-  'shot-4' = @{ path = 'store\graphics\screenshot-4.png'; opera = 'store\graphics\opera\screenshot-4.png' }
-  'shot-5' = @{ path = 'store\graphics\screenshot-5.png'; opera = 'store\graphics\opera\screenshot-5.png' }
+  'shot-3' = @{ path = 'store\graphics\screenshot-3.png' }
+  'shot-4' = @{ path = 'store\graphics\screenshot-4.png'; opera = 'store\graphics\opera\screenshot-3.png' }
+  'shot-5' = @{ path = 'store\graphics\screenshot-5.png' }
   'tile' = @{ path = 'store\graphics\promo-small-440x280.png' }
   'marquee' = @{ path = 'store\graphics\promo-marquee-1400x560.png' }
   'icon-16' = @{ path = 'icons\icon16.png'; alpha = $true }
