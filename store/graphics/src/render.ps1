@@ -99,3 +99,6 @@ finally {
   Get-CimInstance Win32_Process | Where-Object { $_.CommandLine -like "*$profile*" } |
     ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }
 }
+
+# скриншоты нужны и сайту: GitHub Pages публикует только docs/
+Copy-Item (Join-Path $root 'store\graphics\screenshot-*.png') (Join-Path $root 'docs') -Force

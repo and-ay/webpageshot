@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WebPageShot — web page screenshots</title>
+  <meta name="description" content="Browser extension for web page screenshots: the visible area, the full page, a selected region or a single block. Chrome, Edge, Opera and Firefox.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232f6feb' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1.5 7.5v-3a3 3 0 0 1 3-3h3M16.5 1.5h3a3 3 0 0 1 3 3v3M22.5 16.5v3a3 3 0 0 1-3 3h-3M7.5 22.5h-3a3 3 0 0 1-3-3v-3'/%3E%3Cpath stroke-width='2' d='M12.6 6h4.8c.33 0 .6.22.6.5v3c0 .28-.27.5-.6.5h-4.8c-.33 0-.6-.22-.6-.5v-3c0-.28.27-.5.6-.5zM6 6h2M6 10h2M6 14h11M6 18h12'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #ffffff;
+      --fg: #1c1d22;
+      --muted: #747782;
+      --card: #f2f3f7;
+      --line: #e4e6ec;
+      --accent: #2f6feb;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1b1c21;
+        --fg: #ececf0;
+        --muted: #8e919c;
+        --card: #24262d;
+        --line: #30323a;
+      }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 system-ui, "Segoe UI", sans-serif; }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 24px 16px 48px; }
+    header { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; }
+    .logo { width: 24px; height: 24px; fill: none; stroke: var(--accent); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    nav { display: flex; flex-wrap: wrap; gap: 4px; margin-left: auto; }
+    nav a { padding: 3px 8px; border-radius: 6px; color: var(--muted); font-size: 14px; text-decoration: none; }
+    nav a:hover { background: var(--card); color: var(--fg); }
+    nav a[aria-current="true"] { background: var(--card); color: var(--fg); font-weight: 600; }
+    h1 { margin: 32px 0 8px; font-size: 32px; line-height: 1.2; letter-spacing: -.5px; }
+    h2 { margin: 32px 0 8px; font-size: 20px; }
+    .lead { margin: 0; color: var(--muted); font-size: 18px; }
+    .shot { display: block; width: 100%; height: auto; margin: 24px 0 0; border: 1px solid var(--line); border-radius: 8px; }
+    .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 24px 0 0; }
+    .gallery img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 8px; }
+    @media (max-width: 560px) { .gallery { grid-template-columns: 1fr; } }
+    ul { padding-left: 20px; }
+    li { margin: 6px 0; }
+    kbd { padding: 1px 6px; border: 1px solid var(--line); border-radius: 4px; background: var(--card); font: 600 13px system-ui, "Segoe UI", sans-serif; white-space: nowrap; }
+    .soon { margin: 0; padding: 12px 16px; border-radius: 6px; background: var(--card); }
+    a { color: var(--accent); }
+    footer { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="brand">
+      <svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M1.5 7.5v-3a3 3 0 0 1 3-3h3M16.5 1.5h3a3 3 0 0 1 3 3v3M22.5 16.5v3a3 3 0 0 1-3 3h-3M7.5 22.5h-3a3 3 0 0 1-3-3v-3"/><path stroke-width="2" d="M12.6 6h4.8c.33 0 .6.22.6.5v3c0 .28-.27.5-.6.5h-4.8c-.33 0-.6-.22-.6-.5v-3c0-.28.27-.5.6-.5zM6 6h2M6 10h2M6 14h11M6 18h12"/></svg>
+      WebPageShot
+    </span>
+    <nav>
+      <a href="#en">English</a>
+      <a href="#fr">Français</a>
+      <a href="#es">Español</a>
+      <a href="#it">Italiano</a>
+      <a href="#de">Deutsch</a>
+      <a href="#ru">Русский</a>
+      <a href="#uk">Українська</a>
+    </nav>
+  </header>
+
+  <section lang="en" id="en" data-title="WebPageShot — web page screenshots">
+    <h1>Web page screenshots in one click</h1>
+    <p class="lead">WebPageShot is a browser extension that captures the visible area, the whole page from top to bottom, a region you select with the mouse, or a single block of the page.</p>
+    <img class="shot" src="screenshot-1.png" width="1280" height="800" alt="WebPageShot popup with the four capture modes">
+
+    <h2>Capture modes</h2>
+    <ul>
+      <li><b>Visible area</b> <kbd>Alt+S</kbd> — exactly what you see in the window.</li>
+      <li><b>Full page</b> <kbd>Alt+A</kbd> — the whole page: WebPageShot scrolls it and stitches the frames together.</li>
+      <li><b>Region</b> <kbd>Alt+R</kbd> — drag to select an area. You can scroll while selecting, so the region can be larger than the screen.</li>
+      <li><b>Block</b> <kbd>Alt+B</kbd> — hover over an element of the page and click. Use <kbd>↑</kbd> and <kbd>↓</kbd> to switch to the outer or inner block.</li>
+    </ul>
+    <p>All modes are also available from the toolbar button and from the page context menu.</p>
+
+    <h2>After capture</h2>
+    <ul>
+      <li>Save to a file — PNG or JPG.</li>
+      <li>Copy to the clipboard — and paste it straight into a messenger or an image editor.</li>
+      <li>Open a preview — view the screenshot at 1:1 and save or copy it later.</li>
+    </ul>
+    <p>Any combination works.</p>
+
+    <div class="gallery">
+      <a href="screenshot-2.png"><img src="screenshot-2.png" width="1280" height="800" loading="lazy" alt="Full page"></a>
+      <a href="screenshot-3.png"><img src="screenshot-3.png" width="1280" height="800" loading="lazy" alt="Region"></a>
+      <a href="screenshot-4.png"><img src="screenshot-4.png" width="1280" height="800" loading="lazy" alt="Block"></a>
+      <a href="screenshot-5.png"><img src="screenshot-5.png" width="1280" height="800" loading="lazy" alt="Save, copy or preview"></a>
+    </div>
+
+    <h2>Clean full-page screenshots</h2>
+    <ul>
+      <li>Sticky headers and floating buttons appear once instead of on every frame.</li>
+      <li>Fixed side menus are captured at full height.</li>
+      <li>Web apps that scroll an inner container instead of the window are supported.</li>
+    </ul>
+
+    <h2>Saving</h2>
+    <p>Screenshots go to Downloads/WebPageShot. WebPageShot can also ask where to save every time. In Chrome, Edge and Opera you can choose your own default folder as well.</p>
+
+    <h2>Privacy</h2>
+    <p>WebPageShot collects no data and makes no network requests. Screenshots never leave your computer. <a href="privacy.html#en">Privacy policy</a></p>
+
+    <h2>Install</h2>
+    <p>Works in Chrome, Edge, Opera, Brave, Yandex Browser and other Chromium-based browsers (version 121 and later), and in Firefox 140 and later. The interface is available in English, French, Spanish, Italian, German, Russian and Ukrainian.</p>
+    <p class="soon">WebPageShot is on its way to the Chrome Web Store, Microsoft Edge Add-ons, Firefox Add-ons and Opera add-ons — links will appear here once it is published. Until then, the source code and build instructions are on <a href="https://github.com/and-ay/webpageshot">GitHub</a>.</p>
+  </section>
+
+  <section lang="fr" id="fr" data-title="WebPageShot — captures d’écran de pages web">
+    <h1>Captures de pages web en un clic</h1>
+    <p class="lead">WebPageShot est une extension de navigateur qui capture la partie visible, la page entière de haut en bas, une zone sélectionnée à la souris ou un seul bloc de la page.</p>
+    <img class="shot" src="screenshot-1.png" width="1280" height="800" alt="Fenêtre de WebPageShot avec les quatre modes de capture">
+
+    <h2>Modes de capture</h2>
+    <ul>
+      <li><b>Zone visible</b> <kbd>Alt+S</kbd> — exactement ce que vous voyez dans la fenêtre.</li>
+      <li><b>Page entière</b> <kbd>Alt+A</kbd> — toute la page : WebPageShot la fait défiler et assemble les images.</li>
+      <li><b>Sélection</b> <kbd>Alt+R</kbd> — tracez une zone à la souris. Vous pouvez faire défiler la page pendant la sélection : la zone peut dépasser la taille de l’écran.</li>
+      <li><b>Bloc</b> <kbd>Alt+B</kbd> — survolez un élément de la page et cliquez. <kbd>↑</kbd> et <kbd>↓</kbd> permettent de passer au bloc extérieur ou intérieur.</li>
+    </ul>
+    <p>Tous les modes sont aussi accessibles depuis le bouton de la barre d’outils et le menu contextuel de la page.</p>
+
+    <h2>Après la capture</h2>
+    <ul>
+      <li>Enregistrer dans un fichier — PNG ou JPG.</li>
+      <li>Copier dans le presse-papiers — et coller directement dans une messagerie ou un éditeur d’images.</li>
+      <li>Ouvrir un aperçu — voir la capture en taille réelle, puis l’enregistrer ou la copier.</li>
+    </ul>
+    <p>Toutes les combinaisons sont possibles.</p>
+
+    <div class="gallery">
+      <a href="screenshot-2.png"><img src="screenshot-2.png" width="1280" height="800" loading="lazy" alt="Page entière"></a>
+      <a href="screenshot-3.png"><img src="screenshot-3.png" width="1280" height="800" loading="lazy" alt="Sélection"></a>
+      <a href="screenshot-4.png"><img src="screenshot-4.png" width="1280" height="800" loading="lazy" alt="Bloc"></a>
+      <a href="screenshot-5.png"><img src="screenshot-5.png" width="1280" height="800" loading="lazy" alt="Enregistrer, copier ou prévisualiser"></a>
+    </div>
+
+    <h2>Des captures de page entière propres</h2>
+    <ul>
+      <li>Les en-têtes fixes et les boutons flottants n’apparaissent qu’une fois, et non sur chaque image.</li>
+      <li>Les menus latéraux fixes sont capturés sur toute leur hauteur.</li>
+      <li>Les applications web qui font défiler un conteneur interne plutôt que la fenêtre sont prises en charge.</li>
+    </ul>
+
+    <h2>Enregistrement</h2>
+    <p>Les captures sont enregistrées dans Téléchargements/WebPageShot. WebPageShot peut aussi demander où enregistrer à chaque fois. Dans Chrome, Edge et Opera, vous pouvez en plus choisir votre propre dossier par défaut.</p>
+
+    <h2>Confidentialité</h2>
+    <p>WebPageShot ne collecte aucune donnée et n’effectue aucune requête réseau. Les captures ne quittent jamais votre ordinateur. <a href="privacy.html#fr">Politique de confidentialité</a></p>
+
+    <h2>Installation</h2>
+    <p>Fonctionne dans Chrome, Edge, Opera, Brave, Yandex Browser et les autres navigateurs basés sur Chromium (version 121 et ultérieures), ainsi que dans Firefox 140 et ultérieures. L’interface est disponible en anglais, français, espagnol, italien, allemand, russe et ukrainien.</p>
+    <p class="soon">WebPageShot arrive bientôt sur le Chrome Web Store, Microsoft Edge Add-ons, Firefox Add-ons et Opera add-ons — les liens apparaîtront ici dès sa publication. En attendant, le code source et les instructions de compilation sont sur <a href="https://github.com/and-ay/webpageshot">GitHub</a>.</p>
+  </section>
+
+  <section lang="es" id="es" data-title="WebPageShot — capturas de páginas web">
+    <h1>Capturas de páginas web con un clic</h1>
+    <p class="lead">WebPageShot es una extensión de navegador que captura la parte visible, la página completa de arriba abajo, una región que seleccionas con el ratón o un solo bloque de la página.</p>
+    <img class="shot" src="screenshot-1.png" width="1280" height="800" alt="Ventana de WebPageShot con los cuatro modos de captura">
+
+    <h2>Modos de captura</h2>
+    <ul>
+      <li><b>Área visible</b> <kbd>Alt+S</kbd> — exactamente lo que ves en la ventana.</li>
+      <li><b>Página completa</b> <kbd>Alt+A</kbd> — toda la página: WebPageShot la desplaza y une las imágenes.</li>
+      <li><b>Región</b> <kbd>Alt+R</kbd> — arrastra para seleccionar un área. Puedes desplazar la página mientras seleccionas, así que la región puede ser más grande que la pantalla.</li>
+      <li><b>Bloque</b> <kbd>Alt+B</kbd> — pasa el cursor sobre un elemento de la página y haz clic. Con <kbd>↑</kbd> y <kbd>↓</kbd> cambias al bloque exterior o interior.</li>
+    </ul>
+    <p>Todos los modos están disponibles también desde el botón de la barra de herramientas y desde el menú contextual de la página.</p>
+
+    <h2>Después de capturar</h2>
+    <ul>
+      <li>Guardar en un archivo — PNG o JPG.</li>
+      <li>Copiar al portapapeles — y pegarla directamente en un mensajero o un editor de imágenes.</li>
+      <li>Abrir una vista previa — ver la captura a tamaño real y guardarla o copiarla más tarde.</li>
+    </ul>
+    <p>Se puede cualquier combinación.</p>
+
+    <div class="gallery">
+      <a href="screenshot-2.png"><img src="screenshot-2.png" width="1280" height="800" loading="lazy" alt="Página completa"></a>
+      <a href="screenshot-3.png"><img src="screenshot-3.png" width="1280" height="800" loading="lazy" alt="Región"></a>
+      <a href="screenshot-4.png"><img src="screenshot-4.png" width="1280" height="800" loading="lazy" alt="Bloque"></a>
+      <a href="screenshot-5.png"><img src="screenshot-5.png" width="1280" height="800" loading="lazy" alt="Guardar, copiar o vista previa"></a>
+    </div>
+
+    <h2>Capturas de página completa limpias</h2>
+    <ul>
+      <li>Los encabezados fijos y los botones flotantes aparecen una sola vez, no en cada imagen.</li>
+      <li>Los menús laterales fijos se capturan a toda su altura.</li>
+      <li>Se admiten aplicaciones web que desplazan un contenedor interno en lugar de la ventana.</li>
+    </ul>
+
+    <h2>Guardado</h2>
+    <p>Las capturas se guardan en Descargas/WebPageShot. WebPageShot también puede preguntar dónde guardar cada vez. En Chrome, Edge y Opera puedes elegir además tu propia carpeta predeterminada.</p>
+
+    <h2>Privacidad</h2>
+    <p>WebPageShot no recopila ningún dato y no realiza solicitudes de red. Las capturas nunca salen de tu ordenador. <a href="privacy.html#es">Política de privacidad</a></p>
+
+    <h2>Instalación</h2>
+    <p>Funciona en Chrome, Edge, Opera, Brave, Yandex Browser y otros navegadores basados en Chromium (versión 121 o posterior), y en Firefox 140 o posterior. La interfaz está disponible en inglés, francés, español, italiano, alemán, ruso y ucraniano.</p>
+    <p class="soon">WebPageShot llegará pronto a Chrome Web Store, Microsoft Edge Add-ons, Firefox Add-ons y Opera add-ons; los enlaces aparecerán aquí en cuanto se publique. Mientras tanto, el código fuente y las instrucciones de compilación están en <a href="https://github.com/and-ay/webpageshot">GitHub</a>.</p>
+  </section>
+
+  <section lang="it" id="it" data-title="WebPageShot — screenshot di pagine web">
+    <h1>Screenshot di pagine web con un clic</h1>
+    <p class="lead">WebPageShot è un’estensione del browser che cattura la parte visibile, la pagina intera dall’alto in basso, un’area selezionata con il mouse o un singolo blocco della pagina.</p>
+    <img class="shot" src="screenshot-1.png" width="1280" height="800" alt="Finestra di WebPageShot con le quattro modalità di cattura">
+
+    <h2>Modalità di cattura</h2>
+    <ul>
+      <li><b>Area visibile</b> <kbd>Alt+S</kbd> — esattamente ciò che vedi nella finestra.</li>
+      <li><b>Pagina intera</b> <kbd>Alt+A</kbd> — tutta la pagina: WebPageShot la scorre e unisce le immagini.</li>
+      <li><b>Selezione</b> <kbd>Alt+R</kbd> — trascina per selezionare un’area. Puoi scorrere la pagina durante la selezione, quindi l’area può essere più grande dello schermo.</li>
+      <li><b>Blocco</b> <kbd>Alt+B</kbd> — passa il mouse su un elemento della pagina e fai clic. Con <kbd>↑</kbd> e <kbd>↓</kbd> passi al blocco esterno o interno.</li>
+    </ul>
+    <p>Tutte le modalità sono disponibili anche dal pulsante nella barra degli strumenti e dal menu contestuale della pagina.</p>
+
+    <h2>Dopo lo screenshot</h2>
+    <ul>
+      <li>Salvare in un file — PNG o JPG.</li>
+      <li>Copiare negli appunti — e incollarlo subito in una chat o in un editor di immagini.</li>
+      <li>Aprire un’anteprima — vedere lo screenshot a grandezza reale e salvarlo o copiarlo in seguito.</li>
+    </ul>
+    <p>Qualsiasi combinazione è possibile.</p>
+
+    <div class="gallery">
+      <a href="screenshot-2.png"><img src="screenshot-2.png" width="1280" height="800" loading="lazy" alt="Pagina intera"></a>
+      <a href="screenshot-3.png"><img src="screenshot-3.png" width="1280" height="800" loading="lazy" alt="Selezione"></a>
+      <a href="screenshot-4.png"><img src="screenshot-4.png" width="1280" height="800" loading="lazy" alt="Blocco"></a>
+      <a href="screenshot-5.png"><img src="screenshot-5.png" width="1280" height="800" loading="lazy" alt="Salvare, copiare o anteprima"></a>
+    </div>
+
+    <h2>Screenshot di pagina intera puliti</h2>
+    <ul>
+      <li>Le intestazioni fisse e i pulsanti mobili compaiono una sola volta, non in ogni immagine.</li>
+      <li>I menu laterali fissi vengono catturati per tutta la loro altezza.</li>
+      <li>Sono supportate le applicazioni web che scorrono un contenitore interno invece della finestra.</li>
+    </ul>
+
+    <h2>Salvataggio</h2>
+    <p>Gli screenshot vengono salvati in Download/WebPageShot. WebPageShot può anche chiedere ogni volta dove salvare. In Chrome, Edge e Opera puoi inoltre scegliere una tua cartella predefinita.</p>
+
+    <h2>Privacy</h2>
+    <p>WebPageShot non raccoglie alcun dato e non effettua richieste di rete. Gli screenshot non lasciano mai il tuo computer. <a href="privacy.html#it">Informativa sulla privacy</a></p>
+
+    <h2>Installazione</h2>
+    <p>Funziona in Chrome, Edge, Opera, Brave, Yandex Browser e negli altri browser basati su Chromium (versione 121 e successive), e in Firefox 140 e successive. L’interfaccia è disponibile in inglese, francese, spagnolo, italiano, tedesco, russo e ucraino.</p>
+    <p class="soon">WebPageShot arriverà presto su Chrome Web Store, Microsoft Edge Add-ons, Firefox Add-ons e Opera add-ons: i link compariranno qui dopo la pubblicazione. Nel frattempo, il codice sorgente e le istruzioni per la compilazione sono su <a href="https://github.com/and-ay/webpageshot">GitHub</a>.</p>
+  </section>
+
+  <section lang="de" id="de" data-title="WebPageShot — Screenshots von Webseiten">
+    <h1>Webseiten-Screenshots mit einem Klick</h1>
+    <p class="lead">WebPageShot ist eine Browsererweiterung, die den sichtbaren Bereich, die ganze Seite von oben bis unten, einen mit der Maus ausgewählten Bereich oder einen einzelnen Block der Seite aufnimmt.</p>
+    <img class="shot" src="screenshot-1.png" width="1280" height="800" alt="WebPageShot-Fenster mit den vier Aufnahmemodi">
+
+    <h2>Aufnahmemodi</h2>
+    <ul>
+      <li><b>Sichtbarer Teil</b> <kbd>Alt+S</kbd> — genau das, was Sie im Fenster sehen.</li>
+      <li><b>Ganze Seite</b> <kbd>Alt+A</kbd> — die gesamte Seite: WebPageShot scrollt sie und setzt die Bilder zusammen.</li>
+      <li><b>Auswahl</b> <kbd>Alt+R</kbd> — ziehen Sie einen Bereich mit der Maus auf. Während der Auswahl können Sie scrollen, sodass der Bereich größer als der Bildschirm sein kann.</li>
+      <li><b>Block</b> <kbd>Alt+B</kbd> — fahren Sie mit der Maus über ein Element der Seite und klicken Sie. Mit <kbd>↑</kbd> und <kbd>↓</kbd> wechseln Sie zum äußeren oder inneren Block.</li>
+    </ul>
+    <p>Alle Modi sind auch über die Schaltfläche in der Symbolleiste und über das Kontextmenü der Seite erreichbar.</p>
+
+    <h2>Nach der Aufnahme</h2>
+    <ul>
+      <li>Als Datei speichern — PNG oder JPG.</li>
+      <li>In die Zwischenablage kopieren — und direkt in einen Messenger oder ein Bildbearbeitungsprogramm einfügen.</li>
+      <li>Vorschau öffnen — den Screenshot in Originalgröße ansehen und später speichern oder kopieren.</li>
+    </ul>
+    <p>Jede Kombination ist möglich.</p>
+
+    <div class="gallery">
+      <a href="screenshot-2.png"><img src="screenshot-2.png" width="1280" height="800" loading="lazy" alt="Ganze Seite"></a>
+      <a href="screenshot-3.png"><img src="screenshot-3.png" width="1280" height="800" loading="lazy" alt="Auswahl"></a>
+      <a href="screenshot-4.png"><img src="screenshot-4.png" width="1280" height="800" loading="lazy" alt="Block"></a>
+      <a href="screenshot-5.png"><img src="screenshot-5.png" width="1280" height="800" loading="lazy" alt="Speichern, kopieren oder Vorschau"></a>
+    </div>
+
+    <h2>Saubere Screenshots ganzer Seiten</h2>
+    <ul>
+      <li>Fixierte Kopfzeilen und schwebende Schaltflächen erscheinen nur einmal statt auf jedem Bild.</li>
+      <li>Fixierte Seitenmenüs werden in voller Höhe aufgenommen.</li>
+      <li>Web-Apps, die statt des Fensters einen inneren Container scrollen, werden unterstützt.</li>
+    </ul>
+
+    <h2>Speichern</h2>
+    <p>Screenshots landen in Downloads/WebPageShot. WebPageShot kann auch jedes Mal fragen, wo gespeichert werden soll. In Chrome, Edge und Opera können Sie zusätzlich einen eigenen Standardordner wählen.</p>
+
+    <h2>Datenschutz</h2>
+    <p>WebPageShot erhebt keine Daten und stellt keine Netzwerkanfragen. Screenshots verlassen Ihren Computer nie. <a href="privacy.html#de">Datenschutzerklärung</a></p>
+
+    <h2>Installation</h2>
+    <p>Funktioniert in Chrome, Edge, Opera, Brave, Yandex Browser und anderen Chromium-basierten Browsern (ab Version 121) sowie in Firefox ab Version 140. Die Oberfläche ist auf Englisch, Französisch, Spanisch, Italienisch, Deutsch, Russisch und Ukrainisch verfügbar.</p>
+    <p class="soon">WebPageShot erscheint bald im Chrome Web Store, bei Microsoft Edge Add-ons, Firefox Add-ons und Opera add-ons – die Links stehen hier, sobald es veröffentlicht ist. Bis dahin finden Sie den Quellcode und die Build-Anleitung auf <a href="https://github.com/and-ay/webpageshot">GitHub</a>.</p>
+  </section>
+
+  <section lang="ru" id="ru" data-title="WebPageShot — скриншоты веб-страниц">
+    <h1>Скриншоты веб-страниц в один клик</h1>
+    <p class="lead">WebPageShot — расширение для браузера, которое снимает видимую часть, всю страницу сверху донизу, область, выделенную мышью, или отдельный блок страницы.</p>
+    <img class="shot" src="screenshot-1.png" width="1280" height="800" alt="Окно WebPageShot с четырьмя режимами съёмки">
+
+    <h2>Режимы</h2>
+    <ul>
+      <li><b>Видимая часть</b> <kbd>Alt+S</kbd> — ровно то, что видно в окне.</li>
+      <li><b>Вся страница</b> <kbd>Alt+A</kbd> — страница целиком: WebPageShot прокручивает её и склеивает кадры.</li>
+      <li><b>Область</b> <kbd>Alt+R</kbd> — выделите область мышью. Во время выделения страницу можно прокручивать, так что область может быть больше экрана.</li>
+      <li><b>Блок</b> <kbd>Alt+B</kbd> — наведите курсор на элемент страницы и кликните. Стрелки <kbd>↑</kbd> и <kbd>↓</kbd> переключают на внешний или внутренний блок.</li>
+    </ul>
+    <p>Все режимы доступны также из кнопки на панели и из контекстного меню страницы.</p>
+
+    <h2>После снимка</h2>
+    <ul>
+      <li>Сохранить в файл — PNG или JPG.</li>
+      <li>Скопировать в буфер обмена — и сразу вставить в мессенджер или графический редактор.</li>
+      <li>Открыть превью — посмотреть снимок в масштабе 1:1 и сохранить или скопировать его позже.</li>
+    </ul>
+    <p>Можно в любом сочетании.</p>
+
+    <div class="gallery">
+      <a href="screenshot-2.png"><img src="screenshot-2.png" width="1280" height="800" loading="lazy" alt="Вся страница"></a>
+      <a href="screenshot-3.png"><img src="screenshot-3.png" width="1280" height="800" loading="lazy" alt="Область"></a>
+      <a href="screenshot-4.png"><img src="screenshot-4.png" width="1280" height="800" loading="lazy" alt="Блок"></a>
+      <a href="screenshot-5.png"><img src="screenshot-5.png" width="1280" height="800" loading="lazy" alt="Сохранить, скопировать или открыть превью"></a>
+    </div>
+
+    <h2>Аккуратные снимки всей страницы</h2>
+    <ul>
+      <li>Закреплённые шапки и плавающие кнопки попадают в снимок один раз, а не на каждый кадр.</li>
+      <li>Закреплённые боковые меню снимаются на всю высоту.</li>
+      <li>Поддерживаются веб-приложения, в которых прокручивается не окно, а внутренний контейнер.</li>
+    </ul>
+
+    <h2>Сохранение</h2>
+    <p>Скриншоты сохраняются в Загрузки/WebPageShot. Можно включить вопрос, куда сохранять, при каждом снимке. В Chrome, Edge и Opera можно также выбрать свою папку по умолчанию.</p>
+
+    <h2>Конфиденциальность</h2>
+    <p>WebPageShot не собирает никаких данных и не делает сетевых запросов. Скриншоты не покидают ваш компьютер. <a href="privacy.html#ru">Политика конфиденциальности</a></p>
+
+    <h2>Установка</h2>
+    <p>Работает в Chrome, Edge, Opera, Brave, Яндекс Браузере и других браузерах на Chromium (версии 121 и новее), а также в Firefox 140 и новее. Интерфейс доступен на английском, французском, испанском, итальянском, немецком, русском и украинском языках.</p>
+    <p class="soon">WebPageShot скоро появится в Chrome Web Store, Microsoft Edge Add-ons, Firefox Add-ons и Opera add-ons — ссылки будут здесь после публикации. А пока исходный код и инструкция по сборке — на <a href="https://github.com/and-ay/webpageshot">GitHub</a>.</p>
+  </section>
+
+  <section lang="uk" id="uk" data-title="WebPageShot — скриншоти вебсторінок">
+    <h1>Скриншоти вебсторінок в один клік</h1>
+    <p class="lead">WebPageShot — розширення для браузера, яке знімає видиму частину, усю сторінку згори донизу, область, виділену мишею, або окремий блок сторінки.</p>
+    <img class="shot" src="screenshot-1.png" width="1280" height="800" alt="Вікно WebPageShot із чотирма режимами знімання">
+
+    <h2>Режими</h2>
+    <ul>
+      <li><b>Видима частина</b> <kbd>Alt+S</kbd> — саме те, що видно у вікні.</li>
+      <li><b>Уся сторінка</b> <kbd>Alt+A</kbd> — сторінка повністю: WebPageShot прокручує її та склеює кадри.</li>
+      <li><b>Область</b> <kbd>Alt+R</kbd> — виділіть область мишею. Під час виділення сторінку можна прокручувати, тож область може бути більшою за екран.</li>
+      <li><b>Блок</b> <kbd>Alt+B</kbd> — наведіть курсор на елемент сторінки й клацніть. Стрілки <kbd>↑</kbd> і <kbd>↓</kbd> перемикають на зовнішній або внутрішній блок.</li>
+    </ul>
+    <p>Усі режими доступні також із кнопки на панелі та з контекстного меню сторінки.</p>
+
+    <h2>Після знімка</h2>
+    <ul>
+      <li>Зберегти у файл — PNG або JPG.</li>
+      <li>Скопіювати в буфер обміну — і одразу вставити в месенджер або графічний редактор.</li>
+      <li>Відкрити перегляд — подивитися знімок у масштабі 1:1 і зберегти або скопіювати його пізніше.</li>
+    </ul>
+    <p>Можна в будь-якому поєднанні.</p>
+
+    <div class="gallery">
+      <a href="screenshot-2.png"><img src="screenshot-2.png" width="1280" height="800" loading="lazy" alt="Уся сторінка"></a>
+      <a href="screenshot-3.png"><img src="screenshot-3.png" width="1280" height="800" loading="lazy" alt="Область"></a>
+      <a href="screenshot-4.png"><img src="screenshot-4.png" width="1280" height="800" loading="lazy" alt="Блок"></a>
+      <a href="screenshot-5.png"><img src="screenshot-5.png" width="1280" height="800" loading="lazy" alt="Зберегти, скопіювати або відкрити перегляд"></a>
+    </div>
+
+    <h2>Акуратні знімки всієї сторінки</h2>
+    <ul>
+      <li>Закріплені шапки й плаваючі кнопки потрапляють у знімок один раз, а не на кожен кадр.</li>
+      <li>Закріплені бічні меню знімаються на всю висоту.</li>
+      <li>Підтримуються вебзастосунки, у яких прокручується не вікно, а внутрішній контейнер.</li>
+    </ul>
+
+    <h2>Збереження</h2>
+    <p>Скриншоти зберігаються в Завантаження/WebPageShot. Можна ввімкнути запитання, куди зберігати, під час кожного знімка. У Chrome, Edge та Opera можна також вибрати власну папку за замовчуванням.</p>
+
+    <h2>Конфіденційність</h2>
+    <p>WebPageShot не збирає жодних даних і не робить мережевих запитів. Скриншоти не залишають ваш комп’ютер. <a href="privacy.html#uk">Політика конфіденційності</a></p>
+
+    <h2>Встановлення</h2>
+    <p>Працює в Chrome, Edge, Opera, Brave, Яндекс Браузері та інших браузерах на Chromium (версії 121 і новіші), а також у Firefox 140 і новіших. Інтерфейс доступний англійською, французькою, іспанською, італійською, німецькою, російською та українською мовами.</p>
+    <p class="soon">WebPageShot незабаром з’явиться в Chrome Web Store, Microsoft Edge Add-ons, Firefox Add-ons та Opera add-ons — посилання будуть тут після публікації. А поки що вихідний код та інструкція зі збирання — на <a href="https://github.com/and-ay/webpageshot">GitHub</a>.</p>
+  </section>
+
+  <footer>
+    <a href="https://github.com/and-ay/webpageshot">GitHub</a>
+    <span>Apache License 2.0 · © 2026 and-ay</span>
+  </footer>
+</div>
+<script>
+  // Язык: из адреса (#ru), иначе по языку браузера, иначе английский. Без JS видны все языки подряд.
+  const sections = [...document.querySelectorAll('section[lang]')];
+  const langs = sections.map((s) => s.lang);
+  const pick = () => {
+    const hash = location.hash.slice(1);
+    if (langs.includes(hash)) return hash;
+    for (const l of navigator.languages || [navigator.language]) {
+      const base = String(l).slice(0, 2).toLowerCase();
+      if (langs.includes(base)) return base;
+    }
+    return 'en';
+  };
+  const show = () => {
+    const lang = pick();
+    for (const s of sections) s.hidden = s.lang !== lang;
+    for (const a of document.querySelectorAll('nav a')) a.setAttribute('aria-current', String(a.hash === `#${lang}`));
+    document.documentElement.lang = lang;
+    document.title = sections.find((s) => s.lang === lang).dataset.title;
+    scrollTo(0, 0);
+  };
+  addEventListener('hashchange', show);
+  show();
+</script>
+</body>
+</html>
