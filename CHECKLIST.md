@@ -20,7 +20,7 @@
 ## 2. Материалы для магазинов
 
 - [x] Название: «WebScreen» занято в Chrome Web Store, «WebShot» — в Chrome Web Store и Firefox, выбрано «WebPageShot» (совпадений не нашлось)
-  - [ ] перед подачей ещё раз проверить поиском в каждом магазине
+  - [ ] перед подачей ещё раз проверить поиском в каждом магазине (Firefox — свободно)
 - [x] Политика конфиденциальности: `docs/privacy.html`, 7 языков (язык по браузеру, есть переключатель)
   - [x] адрес репозитория: `github.com/and-ay/webpageshot`, политика — `and-ay.github.io/webpageshot/privacy.html`
 - [x] Тексты карточки на 7 языках: краткое — `extDescription` в `_locales`, полное — `store/description.md`
@@ -37,12 +37,12 @@
 
 - [x] Репозиторий [`and-ay/webpageshot`](https://github.com/and-ay/webpageshot) — публичный, GitHub Pages из `docs/` включены, политика открывается: https://and-ay.github.io/webpageshot/privacy.html
 - [ ] Аккаунты:
-  - [ ] Chrome Web Store — взнос $5, двухэтапная аутентификация
+  - [x] Chrome Web Store — взнос $5, двухэтапная аутентификация (лимит аккаунта: 3 опубликованных расширения)
   - [ ] Microsoft Partner Center (Edge)
   - [ ] addons.mozilla.org
   - [ ] addons.opera.com
 - [ ] Загрузить архив и заполнить карточку:
-  - [ ] Chrome Web Store
+  - [x] Chrome Web Store — отправлено на проверку
   - [ ] Edge Add-ons
   - [ ] Firefox
   - [ ] Opera
