@@ -10,11 +10,11 @@ $src = $PSScriptRoot
 $root = Split-Path (Split-Path (Split-Path $src))
 # id блока → файл относительно корня проекта; alpha — сохранить прозрачность
 $frames = [ordered]@{
-  'shot-1' = @{ path = 'store\graphics\screenshot-1.png' }
-  'shot-2' = @{ path = 'store\graphics\screenshot-2.png' }
-  'shot-3' = @{ path = 'store\graphics\screenshot-3.png' }
-  'shot-4' = @{ path = 'store\graphics\screenshot-4.png' }
-  'shot-5' = @{ path = 'store\graphics\screenshot-5.png' }
+  'shot-1' = @{ path = 'store\graphics\screenshot-1.png'; opera = 'store\graphics\opera\screenshot-1.png' }
+  'shot-2' = @{ path = 'store\graphics\screenshot-2.png'; opera = 'store\graphics\opera\screenshot-2.png' }
+  'shot-3' = @{ path = 'store\graphics\screenshot-3.png'; opera = 'store\graphics\opera\screenshot-3.png' }
+  'shot-4' = @{ path = 'store\graphics\screenshot-4.png'; opera = 'store\graphics\opera\screenshot-4.png' }
+  'shot-5' = @{ path = 'store\graphics\screenshot-5.png'; opera = 'store\graphics\opera\screenshot-5.png' }
   'tile' = @{ path = 'store\graphics\promo-small-440x280.png' }
   'marquee' = @{ path = 'store\graphics\promo-marquee-1400x560.png' }
   'icon-16' = @{ path = 'icons\icon16.png'; alpha = $true }
@@ -23,7 +23,20 @@ $frames = [ordered]@{
   'icon-48' = @{ path = 'icons\icon48.png'; alpha = $true }
   'icon-128' = @{ path = 'icons\icon128.png'; alpha = $true }
   'logo-300' = @{ path = 'store\graphics\logo-300.png'; alpha = $true }
+  'icon-64' = @{ path = 'store\graphics\opera\icon-64.png'; alpha = $true }
 }
+
+# без альфа-канала: перерисовываем в 24-битную картинку
+function Save-Rgb([string] $data, [string] $path) {
+  $ms = New-Object IO.MemoryStream (, [Convert]::FromBase64String($data))
+  $img = [Drawing.Image]::FromStream($ms)
+  $rgb = New-Object Drawing.Bitmap $img.Width, $img.Height, ([Drawing.Imaging.PixelFormat]::Format24bppRgb)
+  $g = [Drawing.Graphics]::FromImage($rgb)
+  $g.DrawImage($img, 0, 0, $img.Width, $img.Height)
+  $rgb.Save($path, [Drawing.Imaging.ImageFormat]::Png)
+  $g.Dispose(); $rgb.Dispose(); $img.Dispose(); $ms.Dispose()
+}
+New-Item -ItemType Directory (Join-Path $root 'store\graphics\opera') -Force | Out-Null
 
 if (-not $Browser) {
   $Browser = @(
@@ -85,15 +98,15 @@ try {
       continue
     }
 
-    # без альфа-канала: перерисовываем в 24-битную картинку
-    $ms = New-Object IO.MemoryStream (, $bytes)
-    $img = [Drawing.Image]::FromStream($ms)
-    $rgb = New-Object Drawing.Bitmap $img.Width, $img.Height, ([Drawing.Imaging.PixelFormat]::Format24bppRgb)
-    $g = [Drawing.Graphics]::FromImage($rgb)
-    $g.DrawImage($img, 0, 0, $img.Width, $img.Height)
-    $rgb.Save($path, [Drawing.Imaging.ImageFormat]::Png)
-    $g.Dispose(); $rgb.Dispose(); $img.Dispose(); $ms.Dispose()
+    Save-Rgb $shot.data $path
     '{0,-36} {1}×{2}' -f $frames[$id].path, [int]$r.w, [int]$r.h
+
+    # Opera принимает скриншоты не больше 800×600: тот же кадр, отрисованный в масштабе 800/1280 (800×500)
+    if ($frames[$id].opera) {
+      $small = Send-Cdp 'Page.captureScreenshot' @{ format = 'png'; captureBeyondViewport = $true; clip = @{ x = $r.x; y = $r.y; width = $r.w; height = $r.h; scale = 800 / $r.w } }
+      Save-Rgb $small.data (Join-Path $root $frames[$id].opera)
+      '{0,-36} 800×{1}' -f $frames[$id].opera, [int]($r.h * 800 / $r.w)
+    }
   }
 }
 finally {

@@ -129,5 +129,10 @@ Questions: https://github.com/and-ay/webpageshot/issues
 - Аккаунт разработчика Opera, бесплатно. Проверка ручная и может занять несколько недель.
 - Архив — тот же, что для Chrome.
 - Category: **Productivity**.
-- Описание и скриншоты — те же; требования к размерам картинок уточнить при подаче.
+- Summary — `extDescription` из `_locales`; Description — из `description.md`.
+- Картинки — отдельный набор в `graphics/opera/` (собирается тем же `render.ps1`):
+  - скриншоты `screenshot-1…5.png` — 800×500: Opera не принимает больше 800×600 (рекомендует 612×408);
+  - значок `icon-64.png` — 64×64 без полей: Opera просит, чтобы значок занимал не меньше ~85% площади.
+- License: без своего EULA Opera распространяет расширение по CC BY-NC-ND 4.0, поэтому указать Apache 2.0 и ссылку `https://github.com/and-ay/webpageshot/blob/main/LICENSE`.
+- Support page — `https://and-ay.github.io/webpageshot/`.
 - Комментарий для проверяющих — раздел выше.
