@@ -82,7 +82,9 @@ Host permissions: none.
 - Tags: `screenshot`, `capture`, `full page`, `clipboard`.
 - License — **Apache License 2.0**.
 - Support website — адрес Issues; Privacy policy — можно указать адрес выше (для расширений без сбора данных не обязательно).
-- Notes to Reviewer — раздел выше.
+- Notes to Reviewer — раздел выше, плюс абзац про предупреждение валидатора:
+
+  > The validator warning "offscreen.createDocument is not supported" can be ignored: that code path runs only in Chromium browsers. In Firefox it is never reached (it is guarded by a check for `chrome.offscreen`), and files are saved directly from the background page.
 
 ## Opera (addons.opera.com)
 

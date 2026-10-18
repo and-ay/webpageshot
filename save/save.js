@@ -101,7 +101,7 @@ async function close() {
 
 function show(title, html) {
   $('title').textContent = title;
-  $('text').innerHTML = html;
+  $('text').replaceChildren(...new DOMParser().parseFromString(html, 'text/html').body.childNodes);
 }
 
 function showThumb() {
