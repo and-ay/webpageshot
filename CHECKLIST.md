@@ -20,7 +20,7 @@
 ## 2. Материалы для магазинов
 
 - [x] Название: «WebScreen» занято в Chrome Web Store, «WebShot» — в Chrome Web Store и Firefox, выбрано «WebPageShot» (совпадений не нашлось)
-  - [ ] перед подачей ещё раз проверить поиском в каждом магазине (Firefox — свободно)
+  - [x] перед подачей проверено поиском: в Firefox, Edge и Opera свободно, Chrome принял
 - [x] Политика конфиденциальности: `docs/privacy.html`, 7 языков (язык по браузеру, есть переключатель)
   - [x] адрес репозитория: `github.com/and-ay/webpageshot`, политика — `and-ay.github.io/webpageshot/privacy.html`
 - [x] Тексты карточки на 7 языках: краткое — `extDescription` в `_locales`, полное — `store/description.md`
