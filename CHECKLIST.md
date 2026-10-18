@@ -40,16 +40,18 @@
   - [x] Chrome Web Store — взнос $5, двухэтапная аутентификация (лимит аккаунта: 3 опубликованных расширения)
   - [x] Microsoft Partner Center (Edge) — Individual, страна Канада (изменить нельзя)
   - [x] addons.mozilla.org — двухэтапная аутентификация
-  - [ ] addons.opera.com
+  - [x] addons.opera.com
 - [ ] Загрузить архив и заполнить карточку:
   - [x] Chrome Web Store — отправлено на проверку
   - [x] Edge Add-ons — отправлено на проверку (ответ до 7 рабочих дней)
   - [x] Firefox — отправлено на проверку (только desktop); проверить скриншоты и переводы описания на странице редактирования
-  - [ ] Opera
+  - [x] Opera — отправлено на модерацию 18.10.2026 (ручная проверка, может занять недели)
 - [ ] Дождаться проверки, ответить на замечания модераторов
 - [ ] После одобрения вставить ссылки на магазины на сайт (`docs/index.html`, раздел установки на 7 языках) и в README
   - Firefox: `https://addons.mozilla.org/firefox/addon/webpageshot/`
   - Edge: `https://microsoftedge.microsoft.com/addons/detail/ehdenpojpiphjdpibmcolfihmpmpebcg`
+  - Opera: `https://addons.opera.com/extensions/details/webpageshot/`
+  - Chrome: ссылка появится в консоли разработчика после публикации
 
 ## 4. Обновления
 
