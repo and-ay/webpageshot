@@ -64,12 +64,19 @@ Host permissions: none.
 
 ## Microsoft Edge Add-ons (Partner Center)
 
-- Аккаунт Partner Center, бесплатно.
-- Category: **Productivity**.
-- Описание — для каждого языка из `description.md`. У Edge есть минимальная длина описания; наши тексты заметно длиннее.
+- Аккаунт Partner Center, бесплатно: личный аккаунт Microsoft (Outlook/Hotmail/Live или вход через GitHub), тип аккаунта **Individual**. Страну и тип аккаунта потом изменить нельзя.
+- Архив — `webpageshot-chrome-<версия>.zip`.
+- Availability: Visibility **Public**, Markets — все.
+- Properties: Category **Productivity**; Website — `https://and-ay.github.io/webpageshot/`; Support contact — адрес Issues; Mature content — не отмечать.
+- Privacy: Single purpose, обоснования разрешений, Remote code — **No**, Data usage — как в общем разделе выше; Privacy Policy URL — адрес политики.
+- Store listings — в архиве 7 языков, и **для каждого** обязательны описание и логотип:
+  - Description — из `description.md` (минимум 250 символов, наши тексты длиннее);
+  - Extension logo — `graphics/logo-300.png` (300×300); после загрузки кнопка Duplicate копирует его во все языки, так же для плиток и скриншотов;
+  - Small promotional tile — `graphics/promo-small-440x280.png`; Large promotional tile — `graphics/promo-marquee-1400x560.png`;
+  - Screenshots — `graphics/screenshot-1…5.png` (1280×800, до 6 штук);
+  - название и краткое описание берутся из архива, менять их в форме нельзя.
 - Search terms (до 7):
   `screenshot`, `full page screenshot`, `screen capture`, `scrolling screenshot`, `page capture`, `capture region`, `copy screenshot`
-- Privacy: «Does your product access, collect or transmit personal information?» — **No**. Адрес политики можно указать всё равно.
 - Notes for certification — раздел выше.
 
 ## Firefox (addons.mozilla.org)

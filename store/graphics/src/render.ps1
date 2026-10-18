@@ -22,6 +22,7 @@ $frames = [ordered]@{
   'icon-32' = @{ path = 'icons\icon32.png'; alpha = $true }
   'icon-48' = @{ path = 'icons\icon48.png'; alpha = $true }
   'icon-128' = @{ path = 'icons\icon128.png'; alpha = $true }
+  'logo-300' = @{ path = 'store\graphics\logo-300.png'; alpha = $true }
 }
 
 if (-not $Browser) {
