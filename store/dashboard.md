@@ -84,7 +84,36 @@ Host permissions: none.
 - Support website — адрес Issues; Privacy policy — можно указать адрес выше (для расширений без сбора данных не обязательно).
 - Notes to Reviewer — раздел выше, плюс абзац про предупреждение валидатора:
 
-  > The validator warning "offscreen.createDocument is not supported" can be ignored: that code path runs only in Chromium browsers. In Firefox it is never reached (it is guarded by a check for `chrome.offscreen`), and files are saved directly from the background page.
+  > The validator warning "offscreen.createDocument is not supported" can be ignored: that code path runs only in Chromium browsers. In Firefox it is never reached (it is guarded by a check for `chrome.offscreen`), and files are saved directly from the background page. The warning about the minimum Firefox for Android version does not apply: the extension is submitted for Firefox desktop only.
+- Совместимость: только **Firefox** (desktop), галочку Android снять.
+- Политика приватности: AMO просит текст, а не ссылку. Вставить:
+
+```text
+WebPageShot Privacy Policy
+
+In short: WebPageShot does not collect, keep or transmit any personal data. Everything happens on your computer.
+
+What the extension handles
+- Screenshots. When you start a capture, the extension takes an image of the current tab. The image is processed inside your browser and, depending on your settings, saved to a file on your computer, copied to the clipboard or shown in the preview tab. For the preview a temporary copy is kept in the extension's local storage; it is deleted after saving, and in any case within one hour.
+- Settings. Your settings (image format, what to do after a capture, whether to ask where to save) are kept in the browser's extension storage. If Firefox Sync is turned on, the browser may sync these settings between your devices; the extension itself does not send them anywhere.
+
+What the extension does not do
+- It does not send any data to the developer or to third parties. The extension makes no network requests.
+- It uses no analytics, tracking, advertising or cookies.
+- It does not sell or share any data.
+- It does not load remote code: all code is included in the extension package.
+
+Permissions
+- activeTab: capture the tab you are on, and only after you click the extension button, press a shortcut or choose a context menu item.
+- scripting: prepare the page for the capture (scroll it, hide repeating sticky elements, show the selection frame) and restore it afterwards. The extension reads only the page layout (sizes and positions of elements) and neither stores nor transmits anything.
+- downloads: save screenshots to files.
+- storage: keep your settings.
+- contextMenus: the "WebPageShot" item in the page context menu.
+- clipboardWrite: copy screenshots to the clipboard.
+
+Changes to this policy will be published on this page with a new date. The full policy in 7 languages: https://and-ay.github.io/webpageshot/privacy.html
+Questions: https://github.com/and-ay/webpageshot/issues
+```
 
 ## Opera (addons.opera.com)
 
