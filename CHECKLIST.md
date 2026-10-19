@@ -48,10 +48,10 @@
   - [x] Opera — отправлено на модерацию 18.10.2026 (ручная проверка, может занять недели)
 - [ ] Дождаться проверки, ответить на замечания модераторов
 - [ ] После одобрения вставить ссылки на магазины на сайт (`docs/index.html`, раздел установки на 7 языках) и в README
-  - Firefox: `https://addons.mozilla.org/firefox/addon/webpageshot/`
+  - [x] Chrome: `https://chromewebstore.google.com/detail/webpageshot/ponijbmeehjknifglblinmdihoclfnkf` (ID `ponijbmeehjknifglblinmdihoclfnkf`) — опубликовано 19.10.2026, ссылка на сайте и в README
   - [x] Edge: `https://microsoftedge.microsoft.com/addons/detail/ehdenpojpiphjdpibmcolfihmpmpebcg` — опубликовано, ссылка на сайте и в README
-  - Opera: `https://addons.opera.com/extensions/details/webpageshot/`
-  - Chrome: ссылка появится в консоли разработчика после публикации
+  - [ ] Firefox: `https://addons.mozilla.org/firefox/addon/webpageshot/`
+  - [ ] Opera: `https://addons.opera.com/extensions/details/webpageshot/`
 
 ## 4. Обновления
 

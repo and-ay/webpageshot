@@ -46,8 +46,9 @@
 
 Из магазина:
 
+- [Chrome Web Store](https://chromewebstore.google.com/detail/webpageshot/ponijbmeehjknifglblinmdihoclfnkf) (подходит и для Opera, Brave, Яндекс Браузера и других браузеров на Chromium)
 - [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/ehdenpojpiphjdpibmcolfihmpmpebcg)
-- Chrome Web Store, Firefox Add-ons, Opera add-ons — на проверке, ссылки скоро появятся
+- Firefox Add-ons, Opera add-ons — на проверке, ссылки скоро появятся
 
 Из исходников:
 

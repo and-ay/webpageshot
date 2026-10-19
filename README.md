@@ -47,8 +47,9 @@ hence the window where you press Enter.
 
 From the store:
 
+- [Chrome Web Store](https://chromewebstore.google.com/detail/webpageshot/ponijbmeehjknifglblinmdihoclfnkf) (also for Opera, Brave, Yandex Browser and other Chromium-based browsers)
 - [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/ehdenpojpiphjdpibmcolfihmpmpebcg)
-- Chrome Web Store, Firefox Add-ons, Opera add-ons — in review, links coming soon
+- Firefox Add-ons, Opera add-ons — in review, links coming soon
 
 From source:
 
