@@ -48,7 +48,8 @@
 
 - [Chrome Web Store](https://chromewebstore.google.com/detail/webpageshot/ponijbmeehjknifglblinmdihoclfnkf) (подходит и для Opera, Brave, Яндекс Браузера и других браузеров на Chromium)
 - [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/ehdenpojpiphjdpibmcolfihmpmpebcg)
-- Firefox Add-ons, Opera add-ons — на проверке, ссылки скоро появятся
+- [Firefox Add-ons](https://addons.mozilla.org/firefox/addon/webpageshot/)
+- Opera add-ons — на проверке, ссылка скоро появится
 
 Из исходников:
 

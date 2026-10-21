@@ -50,7 +50,7 @@
 - [ ] После одобрения вставить ссылки на магазины на сайт (`docs/index.html`, раздел установки на 7 языках) и в README
   - [x] Chrome: `https://chromewebstore.google.com/detail/webpageshot/ponijbmeehjknifglblinmdihoclfnkf` (ID `ponijbmeehjknifglblinmdihoclfnkf`) — опубликовано 19.10.2026, ссылка на сайте и в README
   - [x] Edge: `https://microsoftedge.microsoft.com/addons/detail/ehdenpojpiphjdpibmcolfihmpmpebcg` — опубликовано, ссылка на сайте и в README
-  - [ ] Firefox: `https://addons.mozilla.org/firefox/addon/webpageshot/`
+  - [x] Firefox: `https://addons.mozilla.org/firefox/addon/webpageshot/` — опубликовано 21.10.2026 после автоматической проверки (ручная может прийти позже), ссылка на сайте и в README
   - [ ] Opera: `https://addons.opera.com/extensions/details/webpageshot/`
 
 ## 4. Обновления
